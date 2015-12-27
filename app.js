@@ -8,12 +8,34 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var projects = require('./routes/projects');
+var authentication = require('./routes/authentication');
+
+// authenticaton modules
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook').Strategy;
+var fbConfig = require('./config/auth');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+// authentication middleware
+passport.use(new FacebookStrategy({
+    clientID: fbConfig.clientID,
+    clientSecret: fbConfig.clientSecret,
+    callbackURL: fbConfig.callbackURL
+  },
+  function(accessToken, refreshToken, profile, done){
+    User.findOrCreate({}, function(err, user){
+      if(err){
+        return done(err);
+      }
+      done(null, user);
+    });
+  }
+));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -26,6 +48,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', projects);
+app.use('/auth')(passport);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

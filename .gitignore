@@ -39,3 +39,4 @@ node_modules
 
 # Facebook authentication keys
 auth.js
+database.js
