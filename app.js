@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var dbURL = require('./config/database').url;
+var monk = require('monk');
+var db = monk(dbURL);
+var users = db.get('users'); // connect to users database
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var projects = require('./routes/projects');
@@ -21,21 +26,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// authentication middleware
-passport.use(new FacebookStrategy({
-    clientID: fbConfig.clientID,
-    clientSecret: fbConfig.clientSecret,
-    callbackURL: fbConfig.callbackURL
-  },
-  function(accessToken, refreshToken, profile, done){
-    User.findOrCreate({}, function(err, user){
-      if(err){
-        return done(err);
-      }
-      done(null, user);
-    });
-  }
-));
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -44,6 +35,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.session({secret: ''}));
+app.use(passport.initialize());
+// app.use(passport.session());
+
+// authentication middleware
+passport.use(new FacebookStrategy({
+    clientID: fbConfig.clientID,
+    clientSecret: fbConfig.clientSecret,
+    callbackURL: fbConfig.callbackURL
+  },
+  function(accessToken, refreshToken, profile, done){
+    users.findOrCreate({}, function(err, user){
+      if(err){
+        return done(err);
+      }
+      done(null, user);
+    });
+  }
+));
 
 app.use('/', routes);
 app.use('/users', users);
