@@ -5,8 +5,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   if(req.user.email){
     res.render('index', { title: 'You are logged in!'});
+  }else{
+    res.render('index', { title: 'GroupMolder' });
   }
-  res.render('index', { title: 'Express' });
 });
 
 module.exports = router;

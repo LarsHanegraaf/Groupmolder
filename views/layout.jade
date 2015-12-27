@@ -2,12 +2,20 @@ doctype html
 html(ng-app='GroupMolder')
   head
     title= title
+
+    // Bootstrap style
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+
+    // Our own style
     link(rel='stylesheet', href='/stylesheets/style.css')
 
     // Angular script
     script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js')
+
+    // Bootstrap script
+    script(src='/javascripts/bootstrap.min.js')
 
     // Our own scripts
     script(src='/javascripts/groupmolder.js')
