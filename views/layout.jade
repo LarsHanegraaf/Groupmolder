@@ -1,7 +1,15 @@
 doctype html
-html
+html(ng-app='GroupMolder')
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+
+    // Angular script
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js')
+
+    // Our own scripts
+    script(src='/javascripts/groupmolder.js')
   body
     block content
