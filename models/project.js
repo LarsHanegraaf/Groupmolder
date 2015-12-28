@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var GroupSchema = require('mongoose').model('Group').schema;
 
 var projectSchema = new Schema({
   name: String,
@@ -7,13 +8,7 @@ var projectSchema = new Schema({
   numStudents: Number,
   numStudentsPerGroup: Number,
   numGroups: Number,
-  groups: [{
-    groupNumber: Number,
-    members: [{
-      id: String,
-      name: String
-    }]
-  }]
+  groups: [GroupSchema]
 });
 
 module.exports = mongoose.model('Project', projectSchema);

@@ -9,7 +9,8 @@ var dbURL = require('./config/database').url;
 var mongoose = require('mongoose');
 mongoose.connect(dbURL);
 var User = require('./models/user');
-var Project = require('./models/project')
+var Group = require('./models/group');
+var Project = require('./models/project');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
