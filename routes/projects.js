@@ -1,17 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
-// Has to be changed using mongoose instead of monk
-var monk = require('monk');
-var dbUrl = require('../config/database.js').urlKoen;
-var db = monk(dbUrl);
+var dbURL = require('../config/database').url;
+var mongoose = require('mongoose');
+mongoose.createConnection(dbURL);
+
+var Project = require('../models/project')
 
 router.get('/', function(req, res) {
-   var collection = db.get('projects');
-   collection.find({}, function(err, projects){
-       if (err) throw err;
-     	 res.json(projects);
-   });
+  Project.find({}, function(err, projects) {
+    if (err) throw err;
+
+    // Responds an JSON array of all projects in the database
+    res.json(projects);
+  });
 });
+
+
 
 module.exports = router;
