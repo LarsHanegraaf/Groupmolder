@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var dbURL = require('./config/database').url;
 var mongoose = require('mongoose');
@@ -17,6 +18,17 @@ var authentication = require('./routes/authentication');
 
 // authenticaton modules
 var passport = require('passport');
+
+passport.serializeUser(function(user, done) {
+  done(null, user.facebook.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.find({'facebook.id':id}, function(err, user){
+    done(err, user)
+  })
+});
+
 var FacebookStrategy = require('passport-facebook').Strategy;
 var fbConfig = require('./config/auth');
 
@@ -35,9 +47,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.session({secret: ''}));
+app.use(session({name: 'session',
+        cookie: { maxAge: 60000 },
+        secret: fbConfig.sessionSecret,
+        resave: true,
+        saveUninitialized: true
+}));
 app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.session());
 
 // authentication middleware
 passport.use(new FacebookStrategy({
@@ -45,12 +62,29 @@ passport.use(new FacebookStrategy({
     clientSecret: fbConfig.clientSecret,
     callbackURL: fbConfig.callbackURL
   },
-  function(accessToken, refreshToken, profile, done){
-    users.findOrCreate({}, function(err, user){
+  function(req, accessToken, refreshToken, profile, done){
+    console.log(profile);
+    User.findOne({'facebook.id': profile.id}, function(err, user){
       if(err){
         return done(err);
       }
-      done(null, user);
+      if(user){ // if is user is found
+        req.user = user;
+        done(err, user);
+      }else{
+        var newuser = new User({
+          facebook:{
+            id: profile.id,
+            email: "test@test.com",
+            name: 'somename'
+          }
+        });
+        newuser.save(function(err){
+          if(err) console.log(err);
+          return done(err, user);
+        });
+      }
+
     });
   }
 ));
