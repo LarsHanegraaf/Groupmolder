@@ -3,6 +3,9 @@ html(ng-app='GroupMolder')
   head
     title= title
 
+    // jQuery script
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+
     // Bootstrap style
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
 
@@ -17,10 +20,8 @@ html(ng-app='GroupMolder')
     // Bootstrap script
     script(src='/javascripts/bootstrap.min.js')
 
-    // jQuery script
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
-
     // Our own scripts
     script(src='/javascripts/groupmolder.js')
+    
   body
     block content

@@ -10,6 +10,8 @@ var dbURL = require('./config/database').url;
 var mongoose = require('mongoose');
 mongoose.connect(dbURL);
 var User = require('./models/user');
+var Group = require('./models/group');
+var Project = require('./models/project');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -91,7 +93,7 @@ passport.use(new FacebookStrategy({
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/api', projects);
+app.use('/api/projects', projects);
 authentication(app, passport);
 
 

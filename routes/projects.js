@@ -1,17 +1,34 @@
 var express = require('express');
 var router = express.Router();
 
-// Has to be changed using mongoose instead of monk
-// var mongoose = require('mongoose');
-// var dbURL = require('../config/database.js').urlKoen;
-// mongoose.connect(dbURL);
+var dbURL = require('../config/database').url;
+var mongoose = require('mongoose');
+mongoose.createConnection(dbURL);
+
+var Project = require('../models/project')
 
 router.get('/', function(req, res) {
-  //  var collection = db.get('projects');
-  //  collection.find({}, function(err, projects){
-  //      if (err) throw err;
-  //    	 res.json(projects);
-  //  });
+  Project.find({}, function(err, projects) {
+    if (err) throw err;
+
+    // Responds an JSON array of all projects in the database
+    res.json(projects);
+  });
 });
+
+router.post('/', function(req, res) {
+  Project.create({
+    name: req.body.name,
+    subjectCode: req.body.subjectCode,
+    numStudents: req.body.numStudents,
+    numStudentsPerGroup: req.body.numStudentsPerGroup,
+    numGroups: req.body.numGroups
+  }, function(err, newProject) {
+    if (err) return handleError(err);
+
+    res.json({"result": "succes!"});
+  })
+})
+
 
 module.exports = router;
