@@ -6,9 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var dbURL = require('./config/database').url;
-var monk = require('monk');
-var db = monk(dbURL);
-var users = db.get('users'); // connect to users database
+var mongoose = require('mongoose');
+mongoose.connect(dbURL);
+var User = require('./models/user');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -58,7 +59,7 @@ passport.use(new FacebookStrategy({
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', projects);
-app.use('/auth')(passport);
+authentication(app, passport);
 
 
 // catch 404 and forward to error handler
