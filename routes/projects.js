@@ -16,6 +16,19 @@ router.get('/', function(req, res) {
   });
 });
 
+router.post('/', function(req, res) {
+  Project.create({
+    name: req.body.name,
+    subjectCode: req.body.subjectCode,
+    numStudents: req.body.numStudents,
+    numStudentsPerGroup: req.body.numStudentsPerGroup,
+    numGroups: req.body.numGroups
+  }, function(err, newProject) {
+    if (err) return handleError(err);
+
+    res.json({"result": "succes!"});
+  })
+})
 
 
 module.exports = router;
