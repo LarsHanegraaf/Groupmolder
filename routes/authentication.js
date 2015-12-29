@@ -37,11 +37,8 @@ module.exports = function(app, passport){
     res.render('login');
   });
 
-  app.post('/login', function(res, req){
-    console.log('hellow');
-    passport.authenticate('local', { successRedirect: '/',
-                                     failureRedirect: '/login' });
-  });
+  app.post('/login', passport.authenticate('local', { successRedirect: '/',
+                                     failureRedirect: '/login' }));
 
   app.get('/auth/facebook', passport.authenticate('facebook'));
   app.get('/auth/facebook/callback',

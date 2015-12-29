@@ -23,11 +23,11 @@ var authentication = require('./routes/authentication');
 var passport = require('passport');
 
 passport.serializeUser(function(user, done) {
-  done(null, user.facebook.id);
+  done(null, user._id);
 });
 
 passport.deserializeUser(function(id, done) {
-  User.findOne({'facebook.id':id}, function(err, user){
+  User.findOne({'_id':id}, function(err, user){
     done(err, user);
   })
 });
@@ -64,14 +64,14 @@ passport.use(new LocalStrategy({
   // override username with email
   usernameField: 'email',
   passwordField: 'password'
-},
-  function(username, password, done) {
+  },
+  function(email, password, done) {
     User.findOne({ 'local.email': email }, function (err, user) {
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
-      if (bcrypt.compareSync(password, user.local.password)) {
+      if (!bcrypt.compareSync(password, user.local.password)) {
         return done(null, false, { message: 'Incorrect password.' });
       }
       return done(null, user);
