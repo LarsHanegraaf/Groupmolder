@@ -1,8 +1,111 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body > .container:last-child{
+  padding-top: 60px;
 }
 
 a {
   color: #00B7FF;
+}
+
+/* Footer */
+.footer{
+  background-color: #586b73;
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+  color: white;
+}
+
+/*
+=======================================
+index page
+=======================================
+*/
+/* header */
+.jumbotron{
+  color: white;
+  background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.8)), url('/images/banner.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  position: relative;
+}
+
+.jumbotron .bottom{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  left: 0;
+  right: 0;
+}
+
+.jumbotron h1{
+  line-height: 0.2;
+}
+
+.jumbotron h2{
+  font-weight: 100;
+}
+
+.jumbotron a{
+  color: #f25c05;
+  border: 5px solid #f25c05;
+  border-radius: none;
+  padding: 10px 12px;
+  margin: 15px;
+  font-size: 1.5em;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.jumbotron a:hover{
+  background: #f25c05;
+  color: white;
+}
+
+/* Features */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    vertical-align: top;
+    margin-bottom: 40px;
+}
+
+.feature h3{
+  color: #f25c05;
+}
+
+/* Story */
+.story{
+  background-color: #eeeeee;
+}
+.story:before{
+  display: block;
+  content: '';
+  background: rgb(142, 193, 3);
+
+}
+.story img{
+ height: 200px;
+ margin: 20px auto;
+ display: block;
+
+}
+
+/* Demo */
+.demo{
+  margin-bottom: 60px;
+  margin-top: 60px;
 }

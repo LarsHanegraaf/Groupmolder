@@ -8,6 +8,8 @@ html(ng-app='GroupMolder')
 
     // Bootstrap style
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Fira+Sans:400,500')
 
     // Our own style
     link(rel='stylesheet', href='/stylesheets/style.css')
@@ -25,3 +27,8 @@ html(ng-app='GroupMolder')
     
   body
     block content
+    .footer
+      .container
+        .pull-left Proudly crafted in Eindhoven
+        .pull-right 
+          span.glyphicon.glyphicon-copyright-mark  2016

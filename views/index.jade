@@ -1,11 +1,65 @@
 extends layout
 
 block content
-  a(href='/#/')
-    h1= title
-  p Welcome to #{title}
+  .jumbotron
+    .container
+      .bottom
+        h1 Excellent teamwork
+        h2 Forming groups has never been easier
+        a Students
+        a Teachers
   
-  if username
-    p hello #{username}
-  a(href='/auth/facebook') Login with Facebook
-  div(ng-view)
+  .features.container
+    .row.row-centered
+      .col-sm-3.col-centered
+        .feature
+          h3 Teamwork
+          p.
+            Students will be more motivated because they can choose
+            their own teammates.
+      .col-sm-3.col-centered
+        .feature 
+          h3 Random
+          p.
+            If you prefer you can join a random group. Teachers
+            can also assign students to a random group.
+      .col-sm-3.col-centered
+        .feature
+          h3 No loners
+          p.
+            All students will be assigned to a group. 
+            Late students will be assigned to a random group.
+  .story
+    .container
+      .row
+        .col-sm-8
+          h2 The story
+          p.
+            Students from the Web Technology course (2ID60) had to Forming
+            groups by themselves. An online forum on Sakai was used by 
+            many students to find other teammates. This resulted in many
+            posts on the forum from students who were still looking for a group.
+          p.
+           We from group 8, Christian, Lars, Roy and Koen, thought: This
+           process could be organized much more efficiently. That's why we 
+           created Groupmolder: the easiest way to form groups.
+        .col-sm-4
+          img(src='/images/sakai.png')
+  .demo.container
+    .row
+      .col-sm-7
+        iframe(width="100%", height="315", src="https://www.youtube.com/embed/dQw4w9WgXcQ", frameborder="0", allowfullscreen)
+      .col-sm-5
+        h2 Demo 
+        p.
+          Follow the following steps:
+        ol
+          li Lorum ipsulum
+          li Lorum ipsulum
+          li Lorum ipsulum
+          li Lorum ipsulum
+          li Lorum ipsulum
+
+        
+    
+  
