@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var bcrypt = require('bcryptjs');
 
 var dbURL = require('./config/database').url;
 var mongoose = require('mongoose');
@@ -30,7 +31,7 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   })
 });
-
+var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var fbConfig = require('./config/auth');
 
@@ -58,13 +59,32 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // authentication middleware
+
+passport.use(new LocalStrategy({
+  // override username with email
+  usernameField: 'email',
+  passwordField: 'password'
+},
+  function(username, password, done) {
+    User.findOne({ 'local.email': email }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (bcrypt.compareSync(password, user.local.password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
 passport.use(new FacebookStrategy({
     clientID: fbConfig.clientID,
     clientSecret: fbConfig.clientSecret,
     callbackURL: fbConfig.callbackURL
   },
   function(accessToken, refreshToken, profile, done){
-    console.log(profile);
     User.findOne({'facebook.id': profile.id}, function(err, user){
       if(err){
         return done(err);
