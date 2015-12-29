@@ -26,8 +26,8 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  User.find({'facebook.id':id}, function(err, user){
-    done(err, user)
+  User.findOne({'facebook.id':id}, function(err, user){
+    done(err, user);
   })
 });
 
@@ -39,7 +39,6 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
 
 
 // uncomment after placing your favicon in /public
@@ -64,21 +63,19 @@ passport.use(new FacebookStrategy({
     clientSecret: fbConfig.clientSecret,
     callbackURL: fbConfig.callbackURL
   },
-  function(req, accessToken, refreshToken, profile, done){
+  function(accessToken, refreshToken, profile, done){
     console.log(profile);
     User.findOne({'facebook.id': profile.id}, function(err, user){
       if(err){
         return done(err);
       }
       if(user){ // if is user is found
-        req.user = user;
         done(err, user);
       }else{
         var newuser = new User({
           facebook:{
             id: profile.id,
-            email: "test@test.com",
-            name: 'somename'
+            name: profile.displayName
           }
         });
         newuser.save(function(err){
@@ -90,6 +87,16 @@ passport.use(new FacebookStrategy({
     });
   }
 ));
+
+
+// set locals variable to user in order to use it in jade
+app.use(function(req, res, next){
+  if(req.user){
+    res.locals.username = req.user.facebook.name;
+  }
+  next();
+})
+
 
 app.use('/', routes);
 app.use('/users', users);
