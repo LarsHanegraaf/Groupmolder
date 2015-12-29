@@ -13,6 +13,14 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/project-form.html',
             controller: 'AddProjectCtrl'
         })
+        .when('/project/:id', {
+            templateUrl: 'partials/project-edit.html',
+            controller: 'EditProjectCtrl'
+        })
+        .when('/project/delete/:id', {
+            templateUrl: '/partials/project-delete.html',
+            controller: 'DeleteProjectCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -35,3 +43,35 @@ app.controller('AddProjectCtrl', ['$scope', '$resource', '$location',
       });
     };
 }]);
+
+app.controller('EditProjectCtrl', ['$scope', '$resource', '$location', '$routeParams',
+  function($scope, $resource, $location, $routeParams) {
+    var Projects = $resource('api/projects/:id', {id: '@_id'}, {
+      update: { method: 'PUT'}
+    });
+
+    Projects.get({ id: $routeParams.id}, function(project) {
+      $scope.project = project;
+    });
+
+    $scope.save = function() {
+      Projects.update($scope.project, function(){
+        $location.path('/project')
+      });
+    }
+  }]);
+
+app.controller('DeleteProjectCtrl', ['$scope', '$resource', '$location', '$routeParams',
+  function($scope, $resource, $location, $routeParams) {
+    var Projects = $resource('/api/projects/:id');
+
+    Projects.get({ id: $routeParams.id}, function(project) {
+      $scope.project = project;
+    });
+
+    $scope.delete = function(){
+      Projects.delete({ id: $routeParams.id}, function(project) {
+        $location.path('/project');
+      });
+    }
+  }]);

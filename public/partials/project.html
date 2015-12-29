@@ -1,7 +1,15 @@
 <h1>Display Projects</h1>
 
 <ul>
-  <li ng-repeat='project in projects'>{{project._id}} - {{project.name}} - {{project.subjectCode}}</li>
+    <li ng-repeat='project in projects'>
+      {{project._id}} - {{project.name}} - {{project.subjectCode}}
+      <a href="/#/project/{{project._id}}" class="btn btn-warning">
+        Edit <i class="glyphicon glyphicon-pencil"></i>
+      </a>
+      <a href="/#/project/delete/{{project._id}}" class="btn btn-danger">
+        Delete  <i class="glyphicon glyphicon-remove"></i>
+      </a>
+    </li>
 </ul>
 
 <p>

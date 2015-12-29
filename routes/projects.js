@@ -30,5 +30,39 @@ router.post('/', function(req, res) {
   })
 })
 
+router.get('/:id', function(req,res) {
+  Project.findById({ _id: req.params.id }, function(err, project) {
+    if(err) throw err;
+
+    res.json(project);
+  });
+});
+
+router.put('/:id', function(req,res) {
+  Project.update({ _id: req.params.id },
+    {$set: {name: req.body.name,
+    subjectCode: req.body.subjectCode,
+    numStudents: req.body.numStudents,
+    numStudentsPerGroup: req.body.numStudentsPerGroup,
+    numGroups: req.body.numGroups}},
+  function(err, project) {
+    if(err) throw err;
+
+    res.json(project);
+  });
+});
+
+router.delete('/:id', function(req,res) {
+  Project.findById({ _id: req.params.id }, function(err, project) {
+    if(err) throw err;
+
+    project.remove(function(err) {
+      if(err) throw err;
+
+      res.json({"result": "succes!"});
+    });
+  });
+});
+
 
 module.exports = router;

@@ -1,0 +1,13 @@
+<h1>Delete Project</h1>
+<p>
+    Are you sure you want to delete this project?
+</p>
+<ul>
+    <li>Name: {{project.title}}</li>
+    <li>Subject Code: {{project.subjectCode}}</li>
+    <li>Number of students: {{project.numStudents}}</li>
+    <li>Number of students per group: {{project.numStudentsPerGroup}}</li>
+    <li>Number of groups: {{project.numGroups}}</li>
+</ul>
+<input type="button" value="Yes, Delete" class="btn btn-danger" ng-click="delete()" />
+<a class="btn btn-default" href="/#/project/">No, Go Back</a>
