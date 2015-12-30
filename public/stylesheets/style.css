@@ -20,6 +20,37 @@ a {
   color: white;
 }
 
+/* Page transition */
+.zoom-in {
+  transform: scale(1);
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform-origin: 50vh 50vw;
+}
+.zoom-in.ng-enter,
+.zoom-in.ng-leave {
+    -webkit-transition: all 0.8s cubic-bezier(0,1,.24,1);
+    transition: all 0.8s cubic-bezier(0,1,.24,1);
+}
+.zoom-in.ng-enter {
+    transform: scale(.8);
+    opacity: 0;
+}
+.zoom-in.ng-enter-active {
+    transform: scale(1);
+    opacity: 1;
+}
+.zoom-in.ng-leave {
+    transform: scale(1);
+    opacity: 1;
+}
+.zoom-in.ng-leave-active {
+    transform: scale(1.2);
+    opacity: 0;
+}
+
 /*
 =======================================
 index page
@@ -92,7 +123,7 @@ index page
   background-color: #eeeeee;
   padding-top: 20px;
   padding-bottom: 20px;
-    
+
 }
 .story:before{
   display: block;

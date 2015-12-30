@@ -1,4 +1,4 @@
-var app = angular.module('GroupMolder', ['ngResource', 'ngRoute']);
+var app = angular.module('GroupMolder', ['ngResource', 'ngRoute','ngAnimate']);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
@@ -79,12 +79,12 @@ app.controller('DeleteProjectCtrl', ['$scope', '$resource', '$location', '$route
 //jQuery animations
 $(document).ready(function() {
     var btt = $('.back-to-top');
-    
+
     $(window).on('scroll', function(){
         var check = $(this),
             height = check.height(),
             top = check.scrollTop();
-        
+
         if(top > height) {
             if(!btt .is(':visible')){
                 btt.fadeIn();
@@ -93,15 +93,13 @@ $(document).ready(function() {
             btt.hide();
         }
     });
-    
+
     btt.on('click', function(e){
         $('html, body').animate({
-            scrollTop: 0 
+            scrollTop: 0
         }, 500);
-        
+
         //stop default behaviour button
         e.preventDefault();
     });
 });
-
-
