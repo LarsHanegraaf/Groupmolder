@@ -75,3 +75,33 @@ app.controller('DeleteProjectCtrl', ['$scope', '$resource', '$location', '$route
       });
     }
   }]);
+
+//jQuery animations
+$(document).ready(function() {
+    var btt = $('.back-to-top');
+    
+    $(window).on('scroll', function(){
+        var check = $(this),
+            height = check.height(),
+            top = check.scrollTop();
+        
+        if(top > height) {
+            if(!btt .is(':visible')){
+                btt.fadeIn();
+            }
+        } else {
+            btt.hide();
+        }
+    });
+    
+    btt.on('click', function(e){
+        $('html, body').animate({
+            scrollTop: 0 
+        }, 500);
+        
+        //stop default behaviour button
+        e.preventDefault();
+    });
+});
+
+

@@ -8,7 +8,7 @@ body > .container:last-child{
 }
 
 a {
-  color: #00B7FF;
+  color: #fff;
 }
 
 /* Footer */
@@ -28,19 +28,19 @@ index page
 /* header */
 .jumbotron{
   color: white;
-  background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.8)), url('/images/banner.png');
+  background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.8)), url('/images/banner.png');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 600px;
   position: relative;
 }
 
 .jumbotron .bottom{
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   text-align: center;
   left: 0;
   right: 0;
@@ -51,7 +51,7 @@ index page
 }
 
 .jumbotron h2{
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .jumbotron a{
@@ -64,7 +64,7 @@ index page
   display: inline-block;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.5s, color 0.5s;
 }
 
 .jumbotron a:hover{
@@ -80,7 +80,7 @@ index page
     display:inline-block;
     float:none;
     vertical-align: top;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .feature h3{
@@ -90,6 +90,9 @@ index page
 /* Story */
 .story{
   background-color: #eeeeee;
+  padding-top: 20px;
+  padding-bottom: 20px;
+    
 }
 .story:before{
   display: block;
@@ -100,6 +103,7 @@ index page
 .story img{
  height: 200px;
  margin: 20px auto;
+ margin-top: 30px;
  display: block;
 
 }
@@ -108,4 +112,14 @@ index page
 .demo{
   margin-bottom: 60px;
   margin-top: 60px;
+}
+
+/* Back to top button */
+.back-to-top{
+    position: fixed;
+    background-color: #f25c05;
+    right: 20px;
+    bottom: 60px;
+    padding: 10px;
+    display: none;
 }
