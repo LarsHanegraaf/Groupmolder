@@ -1,3 +1,6 @@
+html, body{
+  height: 100%;
+}
 body {
   padding: 0;
   font-family: 'Fira Sans', sans-serif;
@@ -18,7 +21,10 @@ a {
   width: 100%;
   line-height: 60px;
   color: white;
+  position: absolute;
+  bottom: -60px;
 }
+
 
 /* Page transition */
 .zoom-in {
@@ -28,6 +34,7 @@ a {
   left: 0;
   right: 0;
   transform-origin: 50vh 50vw;
+  min-height: calc(100% - 60px);
 }
 .zoom-in.ng-enter,
 .zoom-in.ng-leave {
