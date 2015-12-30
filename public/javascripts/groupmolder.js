@@ -20,6 +20,8 @@ app.config(['$routeProvider', function($routeProvider){
         .when('/project/delete/:id', {
             templateUrl: '/partials/project-delete.html',
             controller: 'DeleteProjectCtrl'
+        }).when('/register', {
+          templateUrl: '/partials/register.html'
         })
         .otherwise({
             redirectTo: '/'
