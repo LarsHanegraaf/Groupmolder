@@ -169,8 +169,8 @@ Register page
 =========================================================
 */
 .register{
-  background-color: #9BA6AA;
   position: absolute;
+  background-color: #9BA6AA;
   top: 0;
   left: 0;
   right: 0;
@@ -210,7 +210,7 @@ Register page
   border-radius: 100%;
 }
 
-.register .reason i.fa-facebook{
+.register .reason i.fa-facebook-f{
   padding: 10px 19px;
 }
 
@@ -228,6 +228,11 @@ Register page
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: -5px;
+}
+
+
+.reason{
+    margin-top: 25px; /* Distance between features and h2 text */
 }
 
 .register .row:first-child{
@@ -253,6 +258,7 @@ Register page
   padding: 10px;
   margin: 5px 0;
   font-size: 1.2em;
+  color: #435055;
   border: none;
 }
 
@@ -265,6 +271,14 @@ Register page
   margin: 10px 0;
   font-size: 1.5em;
   width: 100%;
+}
+
+.register .panel input[type="submit"]:hover{
+  background-color: #c74813; 
+}
+
+.register .panel a:hover{ /* hover Facebook button */
+  background-color: #184c90; 
 }
 
 .register .panel h4{
@@ -296,6 +310,10 @@ Register page
   font-size: 1.5em;
 }
 
+.register .input-wrapper > i:hover{ /* hover over icons */
+  color: #435055;
+}
+
 .register .input-wrapper input{
   padding-left: 0;
 }
@@ -308,3 +326,123 @@ Register page
   margin-right: 8px;
   display: inline-block;
 }
+
+/*
+=========================================================
+Project page
+=========================================================
+*/
+
+.project .row:first-child{
+  margin-top: 50px;
+}
+
+.project{
+  position: absolute;
+  background: url('/images/patroon.png') repeat; /* repeat patern */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.project .table{
+  margin-top: 20px;
+  width: 95%;
+}
+
+.project thead{
+  font-size: 1.4em;
+  background-color: #6d7d83;
+  color: white;
+}
+
+.project tbody{
+  font-size: 1.2em;
+  background-color: white;
+  color: #435055;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.project .row:first-child{
+  margin-top: 100px; /* Distance between top of the page and the input forms */
+}
+
+.project .panel{
+  background-color: #E0E4E7; /* Background color of form */
+}
+
+.project .panel h2{ /* Title of forms */
+  color: #F25C05;
+  font-weight: bold;
+  text-align: center;
+}
+
+.project .panel-heading{
+  background-color: white;
+}
+
+.project .panel input{ 
+  width: 90%; 
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 1.2em;
+  border: none;
+  color: #435055;
+}
+
+.project .panel input[type="submit"]{ /* submit fields */
+  color: white;
+  background-color: #F25C05;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.project .panel input[type="submit"]:hover{
+  background-color: #c74813;
+}
+
+.project .panel h4{ 
+  text-align: center;
+  color: #000;
+}
+
+.project .input-wrapper > i{ /* icons next to input fields */
+  width: 10%;
+  display: inline-block;
+  background-color: white;
+  color: #586B72;
+  float: left;
+  margin: 5px 0;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.project .input-wrapper > i:hover{ /* icons next to input fields */
+  color: #435055;
+}
+
+.project .input-wrapper input{ /* reduce padding between input fields and icons */
+  padding-left: 0;
+}
+
+.register .input-wrapper input:focus{
+  padding-left: 0;
+}
+
+.project .panel a i{
+  margin-right: 8px;
+  display: inline-block;
+}
+
+
+
+
