@@ -241,6 +241,7 @@ Register page
 
 .register .panel{
   background-color: #E0E4E7;
+  width: 100%;
 }
 
 .register .panel h2{
@@ -274,11 +275,11 @@ Register page
 }
 
 .register .panel input[type="submit"]:hover{
-  background-color: #c74813; 
+  background-color: #c74813;
 }
 
 .register .panel a:hover{ /* hover Facebook button */
-  background-color: #184c90; 
+  background-color: #184c90;
 }
 
 .register .panel h4{
@@ -296,6 +297,26 @@ Register page
   text-decoration: none;
   float: left;
 }
+
+.register .panel{
+  position: relative;
+}
+
+#signup-left{
+  background-image: url('/images/signup-left.png');
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#signup-right{
+  background-image: url('/images/signup-right.png');
+  position: absolute;
+  right: -107px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 
 .register .input-wrapper > i{
   width: 10%;
@@ -385,8 +406,8 @@ tr:nth-child(even) {
   background-color: white;
 }
 
-.project .panel input{ 
-  width: 90%; 
+.project .panel input{
+  width: 90%;
   padding: 10px;
   margin: 5px 0;
   font-size: 1.2em;
@@ -408,7 +429,7 @@ tr:nth-child(even) {
   background-color: #c74813;
 }
 
-.project .panel h4{ 
+.project .panel h4{
   text-align: center;
   color: #000;
 }
@@ -442,7 +463,3 @@ tr:nth-child(even) {
   margin-right: 8px;
   display: inline-block;
 }
-
-
-
-
