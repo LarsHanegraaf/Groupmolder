@@ -21,17 +21,42 @@
                   <td>{{project.name}}</td>
                   <td>{{project.subjectCode}}</td>
                   <td><a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i>View</a>
-                      <a href="/#/project/{{project._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i>Edit</a> 
-                      <a href="/#/project/delete/{{project._id}}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i>Remove</a></td>  
+                      <a href="/#/project/{{project._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i>Edit</a>
+                      <button class="btn btn-danger" data-toggle= "modal" data-target=".remove"><i class="glyphicon glyphicon-remove"></i> Remove</button> 
+                  </td>  
                 </tr>
               </tbody>
-            </table>
+            </table> 
           </div>
         </div>
     </div>
 </div>
+    
+<!-- Pop up when remove button is clicked -->    
+<div class = "modal fade remove" id="remove" role="dialog">
+    <div class = "modal-dialog">
+        <div class = "modal-content" style="background-color: #435055">
+            <div class = "modal-header">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+                
+                <h4 class="modal-title" style="color: white">
+                    Are you sure you want to permanently remove the GroupMolder?
+                </h4> 
+            </div>
+            
+            <div class="modal-footer">
+                <a href="/#/project/delete/{{project._id}}" class="btn btn-default" style="background-color: #F25C05; color: white">Yes</a>
+                <a href="#" class="btn btn-default">No</a>
+            </div>
+        </div>
+        
+    </div> 
+</div>      
             
 <div class="col-sm-4">
+    <div class="panel-body">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h2>Create groupmolder</h2>
@@ -66,31 +91,17 @@
           </div>
         </div>
       </div>
-   </div>
-  </div>
+</div>
+</div>
+</div>
 </div>
 <ng-include src="'partials/footer.html'"></ng-include>
 
-
+         
 
 
 <!--
-<h1>Display Projects</h1>
-
-<ul>
-    <li ng-repeat='project in projects'>
-      {{project._id}} - {{project.name}} - {{project.subjectCode}}
-      <a href="/#/project/{{project._id}}" class="btn btn-warning">
-        Edit <i class="glyphicon glyphicon-pencil"></i>
-      </a>
-      <a href="/#/project/delete/{{project._id}}" class="btn btn-danger">
-        Delete  <i class="glyphicon glyphicon-remove"></i>
-      </a>
-    </li>
-</ul>
-
-<p>
-  <a href="/#/project/add">Add a project</a>
-</p>
-<ng-include src="'partials/footer.html'"></ng-include>
+    <td><a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i>View</a>
+                      <a href="/#/project/{{project._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i>Edit</a> 
+                      <a href="/#/project/delete/{{project._id}}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i>Remove</a></td>  
 -->

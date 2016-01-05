@@ -463,3 +463,7 @@ tr:nth-child(even) {
   margin-right: 8px;
   display: inline-block;
 }
+
+#popup{
+    font-family: 'Fira Sans';
+}

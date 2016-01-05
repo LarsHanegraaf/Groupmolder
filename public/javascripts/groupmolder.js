@@ -82,20 +82,6 @@ app.controller('DeleteProjectCtrl', ['$scope', '$resource', '$location', '$route
 $(document).ready(function() {
     var btt = $('.back-to-top');
 
-    $(window).on('scroll', function(){
-        var check = $(this),
-            height = check.height(),
-            top = check.scrollTop();
-
-        if(top > height) {
-            if(!btt .is(':visible')){
-                btt.fadeIn();
-            }
-        } else {
-            btt.hide();
-        }
-    });
-
     btt.on('click', function(e){
         $('html, body').animate({
             scrollTop: 0
@@ -103,5 +89,19 @@ $(document).ready(function() {
 
         //stop default behaviour button
         e.preventDefault();
+    });
+    
+    $(window).on('scroll', function(){
+        var self = $(this),
+            height = self.height(),
+            top = self.scrollTop();
+
+        if(top > height) {
+            if(!btt.is(':visible')){
+                btt.fadeIn();
+            }
+        } else {
+            btt.hide();
+        }
     });
 });
