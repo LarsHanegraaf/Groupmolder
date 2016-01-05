@@ -184,11 +184,20 @@ Register page
     width: 49%;
 }
 
+.register .panel{
+  background-color: #E0E4E7;
+  width: 80%;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 768px){
   .vcenter{
     display: block;
+    width: 100%;
+  }
 
-    width: 80%;
+  .register .panel{
+    margin-top: 50px;
   }
 }
 
@@ -239,10 +248,7 @@ Register page
   margin-top: 50px;
 }
 
-.register .panel{
-  background-color: #E0E4E7;
-  width: 100%;
-}
+
 
 .register .panel h2{
   color: #F25C05;
@@ -305,14 +311,14 @@ Register page
 #signup-left{
   background-image: url('/images/signup-left.png');
   position: absolute;
-  left: -50px;
+  left: -5px;
   top: 50%;
   transform: translateY(-50%);
 }
 #signup-right{
   background-image: url('/images/signup-right.png');
   position: absolute;
-  right: -107px;
+  right: -67px;
   top: 50%;
   transform: translateY(-50%);
 }
