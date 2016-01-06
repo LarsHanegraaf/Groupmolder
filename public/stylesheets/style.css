@@ -170,6 +170,12 @@ index page
   color: white;
 }
 
+@media (max-width:342px) {
+  .jumbotron h1 {
+    font-size: 2.4em;
+  }
+}
+
 /* Features */
 .row-centered {
     text-align:center;
