@@ -22,6 +22,8 @@ app.config(['$routeProvider', function($routeProvider){
             controller: 'DeleteProjectCtrl'
         }).when('/register', {
           templateUrl: '/partials/register.html'
+		}).when('/student', {
+          templateUrl: '/partials/student.html'
         })
         .otherwise({
             redirectTo: '/'
