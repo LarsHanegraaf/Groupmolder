@@ -25,7 +25,6 @@ a {
   bottom: -60px;
 }
 
-
 /* Page transition */
 .zoom-in {
   transform: scale(1);
@@ -63,14 +62,20 @@ a {
 index page
 =======================================
 */
-/* header */
+
+/* Navbar */
 #menu{
 	padding: 15px;
 	opacity: 0.8;
+  background-color: white;
+}
+
+#menu .btn {
+  margin-top: 10px;
 }
 
 #img-menu{
-	margin-top: 10px;
+  margin-top:-10px;
 }
 
 #facebook-signin{
@@ -81,6 +86,43 @@ index page
 #facebook-signin:hover{
 	background-color: #184c90;
 }
+
+.navbar-toggle {
+  background-color: transparent;
+}
+
+.navbar .navbar-toggle:hover,
+.navbar .navbar-toggle:focus {
+  background-color: #f25c05;
+}
+
+.navbar .navbar-toggle {
+    border: 2px solid #f25c05;
+}
+
+.navbar .navbar-toggle .icon-bar {
+    background-color: #f25c05;
+}
+
+.navbar .navbar-toggle:hover .icon-bar,
+.navbar .navbar-toggle:focus .icon-bar {
+    background-color: white;
+}
+
+@media (max-width:462px) {
+  #img-menu {
+    max-width: 180px;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width:342px) {
+  #menu .btn {
+    width: 100%;
+  }
+}
+
+/*Jumbotron */
 
 .jumbotron{
   color: white;

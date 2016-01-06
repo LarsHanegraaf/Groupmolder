@@ -1,26 +1,31 @@
-<div class="navbar navbar-default navbar-fixed-top" role="navigation" id="menu">
+<!-- Navigation Bar -->
+<div class="navbar navbar navbar-fixed-top" role="navigation" id="menu">
 	<div class="container">
-		<div class="row" id="img-menu">
-			<div class="col-md-3" >
-				<a href="/">
-					<img src="/images/logo.png" class="img-responsive"/>
-				</a>
-			</div>
-			<div>
-				<button class="btn btn-primary pull-right" id="facebook-signin">
-					<i class="fa fa-facebook-official"></i> Sign in with Facebook
-				</button>
-				<button class="btn btn-default pull-right">
-					<i class="fa fa-sign-in"></i> Sign in
-				</button>		
-			</div>
+		<div class="navbar-header">
+
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="/" class="navbar-brand"><img src="/images/logo.png" class="img-responsive" id="img-menu"/></a>
 		</div>
-	</div>	
+
+		<div class="collapse navbar-collapse navHeaderCollapse">
+			<button class="btn btn-primary pull-right" id="facebook-signin">
+				<i class="fa fa-facebook-official"></i> Log in with Facebook
+			</button>
+			<button class="btn btn-default pull-right">
+				<i class="fa fa-sign-in"></i> Log in
+			</button>
+		</div>
+	</div>
 </div>
+
 
 <div class="jumbotron">
   <div class="container">
-    <div class="bottom">       
+    <div class="bottom">
       <h1>Excellent teamwork</h1>
       <h2>Forming groups has never been easier</h2><a>Sign up as Student</a><a>Sign up as Teacher</a>
     </div>
