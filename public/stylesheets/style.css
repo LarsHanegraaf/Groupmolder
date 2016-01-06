@@ -64,6 +64,24 @@ index page
 =======================================
 */
 /* header */
+#menu{
+	padding: 15px;
+	opacity: 0.8;
+}
+
+#img-menu{
+	margin-top: 10px;
+}
+
+#facebook-signin{
+	margin-left: 10px;
+	background-color: #3765A3;
+}
+
+#facebook-signin:hover{
+	background-color: #184c90;
+}
+
 .jumbotron{
   color: white;
   background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.8)), url('/images/banner.png');
@@ -72,7 +90,7 @@ index page
   -o-background-size: cover;
   background-size: cover;
   background-position: center;
-  height: 600px;
+  height: 675px;
   position: relative;
 }
 
@@ -168,6 +186,11 @@ index page
 Register page
 =========================================================
 */
+#register-menu{
+	padding: 15px;
+	background-color: #f2f2f2;
+}
+
 .register{
   position: absolute;
   background-color: #9BA6AA;
@@ -245,7 +268,8 @@ Register page
 }
 
 .register .row:first-child{
-  margin-top: 50px;
+  margin-top: 120px;
+  margin-bottom: 50px;
 }
 
 
