@@ -154,12 +154,12 @@ index page
 
 /* Back to top button */
 .back-to-top{
+    display: none;
     position: fixed;
     background-color: #f25c05;
     right: 20px;
     bottom: 60px;
     padding: 10px;
-    display: none;
 }
 
 
