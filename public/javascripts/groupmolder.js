@@ -1,4 +1,4 @@
-var app = angular.module('GroupMolder', ['ngResource', 'ngRoute','ngAnimate']);
+var app = angular.module('GroupMolder', ['ngResource', 'ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider

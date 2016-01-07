@@ -6,10 +6,6 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-body > .container:last-child{
-  padding-top: 60px;
-}
-
 a {
   color: #fff;
 }
@@ -18,46 +14,23 @@ a {
 .footer{
   background: url('/images/footer.png');
   -webkit-background-size: cover;
-  
   background-color: #586b73;
   height: 60px;
   width: 100%;
   line-height: 60px;
   color: white;
-  position: absolute;
-  bottom: -60px;
 }
 
 /* Page transition */
 .zoom-in {
-  transform: scale(1);
-  opacity: 1;
-  position: absolute;
-  left: 0;
-  right: 0;
-  transform-origin: 50vh 50vw;
-  min-height: calc(100% - 60px);
+  min-height: 100%;
+  margin-bottom: -60px;
 }
-.zoom-in.ng-enter,
-.zoom-in.ng-leave {
-    -webkit-transition: all 0.8s cubic-bezier(0,1,.24,1);
-    transition: all 0.8s cubic-bezier(0,1,.24,1);
-}
-.zoom-in.ng-enter {
-    transform: scale(.8);
-    opacity: 0;
-}
-.zoom-in.ng-enter-active {
-    transform: scale(1);
-    opacity: 1;
-}
-.zoom-in.ng-leave {
-    transform: scale(1);
-    opacity: 1;
-}
-.zoom-in.ng-leave-active {
-    transform: scale(1.2);
-    opacity: 0;
+
+.zoom-in:after{
+  content: "";
+  display: block;
+  height: 60px;
 }
 
 /* Navbar */
@@ -141,6 +114,11 @@ a {
 index page
 =======================================
 */
+
+.home{
+  /*position: absolute;
+  min-height: 100%;*/
+}
 
 /*Jumbotron */
 
@@ -459,12 +437,8 @@ Project page
 }
 
 .project{
-  position: absolute;
   background: url('/images/patroon.png') repeat; /* repeat patern */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  min-height: 100%;
 }
 
 .project .table{
@@ -568,9 +542,9 @@ tr:nth-child(even) {
     font-family: 'Fira Sans';
 }
 
-/* 
+/*
 ==============================================================
-Student page 
+Student page
 ==============================================================
 */
 .student{
@@ -706,7 +680,7 @@ Student page
 }
 
 .group .groupnr{
-  position: absolute; 
+  position: absolute;
   margin-left: 91%;
   margin-top: 89%;
   color: white;
@@ -717,7 +691,7 @@ Student page
 
 @media(max-width: 1000px){
 .group .groupnr{
-  position: absolute; 
+  position: absolute;
   margin-left: 85%;
   margin-top: 85%;
   color: white;
@@ -727,7 +701,7 @@ Student page
   }
 }
 
-.equal, .equal > div[class*='col-'] {  
+.equal, .equal > div[class*='col-'] {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
