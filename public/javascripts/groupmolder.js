@@ -22,7 +22,7 @@ app.config(['$routeProvider', function($routeProvider){
             controller: 'DeleteProjectCtrl'
         }).when('/register', {
           templateUrl: '/partials/register.html'
-		}).when('/student', {
+		    }).when('/student', {
           templateUrl: '/partials/student.html'
         })
         .otherwise({
@@ -92,7 +92,7 @@ $(document).ready(function() {
         //stop default behaviour button
         e.preventDefault();
     });
-    
+
     $(window).on('scroll', function(){
         var self = $(this),
             height = self.height(),
