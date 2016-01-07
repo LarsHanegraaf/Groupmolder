@@ -438,7 +438,9 @@ Project page
 
 .project{
   background: url('/images/patroon.png') repeat; /* repeat patern */
-  min-height: 100%;
+  min-height: 100vh;
+  margin-bottom: -60px;
+  padding-bottom: 60px;
 }
 
 .project .table{
