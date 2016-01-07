@@ -248,6 +248,7 @@ Register page
     min-height: 100vh;
     margin-bottom: -60px;
     padding-bottom: 60px;
+    margin-top: 80px;
 }
 
 .vcenter {
@@ -317,8 +318,7 @@ Register page
 }
 
 .register .row:first-child{
-  margin-top: 120px;
-  margin-bottom: 50px;
+  margin: 50px 0;
 }
 
 .register .panel h2{
@@ -430,15 +430,12 @@ Project page
 =========================================================
 */
 
-.project .row:first-child{
-  margin-top: 50px;
-}
-
 .project{
   background: url('/images/patroon.png') repeat; /* repeat patern */
   min-height: 100vh;
   margin-bottom: -60px;
   padding-bottom: 60px;
+  margin-top: 80px;
 }
 
 .project .table{
@@ -463,7 +460,7 @@ tr:nth-child(even) {
 }
 
 .project .row:first-child{
-  margin-top: 100px; /* Distance between top of the page and the input forms */
+  margin-top: 50px; /* Distance between top of the page and the input forms */
 }
 
 .project .panel{
@@ -552,7 +549,8 @@ Student page
   min-height: 100vh;
   margin-bottom: -60px;
   padding-bottom: 60px;
-  padding-top: 125px;
+  padding-top: 45px;
+  margin-top: 80px;
 }
 
 .student .search-bar{
