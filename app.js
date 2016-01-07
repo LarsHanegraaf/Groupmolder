@@ -51,7 +51,7 @@ app.use(passport.session());
 // set locals variable to user in order to use it in jade
 app.use(function(req, res, next){
   if(req.user){
-    res.locals.username = req.user.facebook.name;
+    res.locals.user = req.user;
   }
   next();
 })

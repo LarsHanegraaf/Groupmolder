@@ -41,15 +41,22 @@ html(ng-app='GroupMolder')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/')
+          a.navbar-brand(href='#/')
             img#img-menu(src='/images/logo.png')
         .collapse.navbar-collapse.navHeaderCollapse
-          button#facebook-signin.btn.btn-primary.pull-right
-            i.fa.fa-facebook-official
-            |  Log in with Facebook
-          button.btn.btn-default.pull-right
-            i.fa.fa-sign-in
-            |  Log in
+          if !user
+            a(href='/auth/facebook', target="_self")
+              button#facebook-signin.btn.btn-primary.pull-right
+                i.fa.fa-facebook-official
+                |  Log in with Facebook
+            button.btn.btn-default.pull-right
+              i.fa.fa-sign-in
+              |  Log in
+          else
+            a(href='/logout', target="_self")
+              button.btn.btn-default.pull-right
+                i.fa.fa-log-out
+                |  Log out
 
     block content
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up" class="back-to-top"></i></a>
