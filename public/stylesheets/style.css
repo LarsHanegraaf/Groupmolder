@@ -631,6 +631,10 @@ Student page
   margin: 5px;
 }
 
+.student .random:hover{
+  background-color: #c74813;
+}
+
 .student h2{
   color: #F25C05;
   font-size: 25px;
@@ -694,12 +698,19 @@ Student page
   float: left;
 }
 
+.image div{
+  position: relative;
+  display: inline;
+  width: 50%;
+  float: left;
+}
+
 .group .groupnr{
   position: absolute; 
   margin-left: 91%;
   margin-top: 89%;
   color: white;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 500;
   text-shadow: 2px 2px black;
 }
@@ -710,7 +721,7 @@ Student page
   margin-left: 85%;
   margin-top: 85%;
   color: white;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 500;
   text-shadow: 6px 6px 6px black;
   }
