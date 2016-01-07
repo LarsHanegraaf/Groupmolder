@@ -107,3 +107,9 @@ $(document).ready(function() {
         }
     });
 });
+
+//Hover effect
+$('#studentName').contenthover({
+    overlay_background:'#000',
+    overlay_opacity:0.8
+});
