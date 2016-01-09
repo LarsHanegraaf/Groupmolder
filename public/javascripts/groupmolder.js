@@ -3,34 +3,67 @@ var app = angular.module('GroupMolder', ['ngResource', 'ngRoute']);
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/', {
-          templateUrl: 'partials/home.html'
+          templateUrl: 'partials/home.html',
+          roles: ['anon', 'teacher', 'student']
         })
         .when('/project', {
             templateUrl: 'partials/project.html',
-            controller: 'ProjectCtrl'
+            controller: 'ProjectCtrl',
+            roles: ['teacher', 'student']
         })
         .when('/project/edit/:id', {
             templateUrl: 'partials/project-edit.html',
-            controller: 'EditProjectCtrl'
+            controller: 'EditProjectCtrl',
+            roles: ['teacher', 'student']
         })
         .when('/project/delete/:id', {
             templateUrl: '/partials/project-delete.html',
-            controller: 'DeleteProjectCtrl'
+            controller: 'DeleteProjectCtrl',
+            roles: ['teacher', 'student']
         })
         .when('/project/:id', {
             templateUrl: '/partials/project-view.html',
-            controller: 'ViewProjectCtrl'
+            controller: 'ViewProjectCtrl',
+            roles: ['teacher', 'student']
         })
         .when('/register', {
-          templateUrl: '/partials/register.html'
+          templateUrl: '/partials/register.html',
+          roles: ['anon']
 		    })
         .when('/student', {
-          templateUrl: '/partials/student.html'
+          templateUrl: '/partials/student.html',
+          roles: ['teacher', 'student']
         })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: '/',
+            roles: ['anon', 'teacher', 'student']
         });
 }]);
+
+// get the role of the user
+app.factory('getUser', ['$http', function($http){
+  var role = 'teacher';
+  var fac = {};
+  fac.userInArray = function(roles){
+    for(var i = 0; i<roles.length; i++){
+      if(role === roles[i]){
+        return true;
+      }
+    }
+    return false;
+  }
+  return fac;
+}]);
+
+app.run(function(getUser, $rootScope, $location){
+  $rootScope.$on("$routeChangeStart", function(event, next, current){
+    if(!getUser.userInArray(next.roles)){
+      $location.path('/');
+    }
+  });
+});
+
+
 
 app.controller('ProjectCtrl', ['$scope', '$resource',
   function($scope, $resource) {
