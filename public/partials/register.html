@@ -27,8 +27,10 @@
 
 			<!-- Registration Form -->
       <div class="col-sm-6 vcenter">
-        <img id="signup-left" src="/images/signup-left.png" alt="">
-        <img id="signup-right" src="/images/signup-right.png" alt="">
+        <div id="signup-left"></div>
+        <div id="signup-right"></div>
+        <!--<img id="signup-left" src="/images/signup-left.png" alt="">
+        <img id="signup-right" src="/images/signup-right.png" alt="">-->
         <div class="panel panel-default">
           <div class="panel-heading">
             <h2>Join Groupmolder!</h2>
@@ -37,23 +39,23 @@
             <form action="/register" method='post'>
               <div class="input-wrapper">
                 <i class="fa fa-user"></i>
-                <input type="text" placeholder="first name" name="firstName">
+                <input class="pull-right" type="text" placeholder="first name" name="firstName">
               </div>
               <div class="input-wrapper">
                 <i class="fa fa-user"></i>
-                <input type="text" placeholder="last name" name="lastName">
+                <input class="pull-right" type="text" placeholder="last name" name="lastName">
               </div>
               <div class="input-wrapper">
                 <i class="fa fa-envelope"></i>
-                <input type="email" placeholder="email" name="email">
+                <input class="pull-right" type="email" placeholder="email" name="email">
               </div>
 			  			<div class="input-wrapper">
                 <i class="fa fa-lock"></i>
-                <input type="password" placeholder="password" name="password">
+                <input class="pull-right" type="password" placeholder="password" name="password">
               </div>
 							<div>
-								<input type="radio" name="type" value="student"><h4 style="text-align: left"><i class="fa fa-graduation-cap"></i> Student</h4>
-								<input type="radio" name="type" value="teacher"><h4 style="text-align: left"><i class="fa fa-briefcase"></i> Teacher</h4>
+								<input class="pull-right" type="radio" name="type" style="width: 12px;" value="student"><h4 style="text-align: left"><i class="fa fa-graduation-cap"></i> Student</h4>
+								<input class="pull-right" type="radio" name="type" style="width: 12px;" value="teacher"><h4 style="text-align: left"><i class="fa fa-briefcase"></i> Teacher</h4>
 							</div>
               <input type="submit" value="Sign up">
             </form>

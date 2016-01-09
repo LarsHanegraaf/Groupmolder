@@ -381,6 +381,8 @@ Register page
 
 #signup-left{
   background-image: url('/images/signup-left.png');
+  width:116px;
+  height:352px;
   position: absolute;
   left: -5px;
   top: 50%;
@@ -388,10 +390,30 @@ Register page
 }
 #signup-right{
   background-image: url('/images/signup-right.png');
+  width:145px;
+  height:360px;
   position: absolute;
-  right: -67px;
   top: 50%;
+  right: -50px;
   transform: translateY(-50%);
+}
+
+@media only screen and (max-width : 1550px) {
+  #signup-right {
+      right: -25px;
+  }
+}
+
+@media only screen and (max-width : 960px) {
+  #signup-right {
+      right: -10px;
+  }
+}
+
+@media only screen and (max-width : 480px) {
+  #signup-right {
+      right: 5px;
+  }
 }
 
 .register .input-wrapper > i{
