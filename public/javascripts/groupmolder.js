@@ -35,16 +35,18 @@ app.config(['$routeProvider', function($routeProvider){
           roles: ['teacher', 'student']
         })
         .otherwise({
-            redirectTo: '/',
-            roles: ['anon', 'teacher', 'student']
+            redirectTo: '/'
         });
 }]);
 
 // get the role of the user
 app.factory('getUser', ['$http', function($http){
-  var role = 'teacher';
+  var role = 'superuser';
   var fac = {};
   fac.userInArray = function(roles){
+    if(role === 'superuser'){
+      return true;
+    }
     for(var i = 0; i<roles.length; i++){
       if(role === roles[i]){
         return true;
@@ -57,8 +59,10 @@ app.factory('getUser', ['$http', function($http){
 
 app.run(function(getUser, $rootScope, $location){
   $rootScope.$on("$routeChangeStart", function(event, next, current){
-    if(!getUser.userInArray(next.roles)){
-      $location.path('/');
+    if(next.roles){
+      if(!getUser.userInArray(next.roles)){
+        $location.path('/');
+      }
     }
   });
 });
