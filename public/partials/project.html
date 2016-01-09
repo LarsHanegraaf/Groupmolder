@@ -22,8 +22,8 @@
                       <tr ng-repeat='project in projects'>
                         <td>{{project.name}}</td>
                         <td>{{project.subjectCode}}</td>
-                        <td><a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i>View</a>
-                            <a href="/#/project/{{project._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i>Edit</a>
+                        <td><a href="/#/project/{{project._id}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i>View</a>
+                            <a href="/#/project/edit/{{project._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i>Edit</a>
                             <button class="btn btn-danger" data-toggle= "modal" data-target=".remove"><i class="glyphicon glyphicon-remove"></i> Remove</button>
                         </td>
                       </tr>
@@ -44,13 +44,13 @@
                       </button>
 
                       <h4 class="modal-title" style="color: white">
-                          Are you sure you want to permanently remove the GroupMolder?
+                          Are you sure you want to permanently remove this GroupMolder?
                       </h4>
                   </div>
 
                   <div class="modal-footer">
                       <a href="/#/project/delete/{{project._id}}" class="btn btn-default" style="background-color: #F25C05; color: white">Yes</a>
-                      <a href="#" class="btn btn-default">No</a>
+                      <a class="btn btn-default" data-dismiss="modal">No</a>
                   </div>
               </div>
           </div>
@@ -67,27 +67,27 @@
               <form>
                 <div class="input-wrapper">
                   <i class="fa fa-info"></i>
-                  <input type="text" placeholder="Course (e.g. Web Technology)" ng-model="project.name"></input>
+                  <input type="text" class="pull-right" placeholder="Course (e.g. Web Technology)" ng-model="project.name"></input>
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-list-alt"></i>
-                  <input type="text" placeholder="Subject Code (e.g. 2ID60)" ng-model="project.subjectCode"></input>
+                  <input type="text" class="pull-right" placeholder="Subject Code (e.g. 2ID60)" ng-model="project.subjectCode"></input>
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-group"></i>
-                  <input type="number" placeholder="Number of students" ng-model="project.numStudents"></input>
+                  <input type="number" class="pull-right" placeholder="Number of students" ng-model="project.numStudents"></input>
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-th-large"></i>
-                  <input type="number" placeholder="Number of students per group" ng-model="project.numStudentsPerGroup"></input>
+                  <input type="number" class="pull-right" placeholder="Number of students per group" ng-model="project.numStudentsPerGroup"></input>
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-th"></i>
-                  <input type="number" placeholder="Number of groups" ng-model="project.numGroups"></input>
+                  <input type="number" class="pull-right" placeholder="Number of groups" ng-model="project.numGroups"></input>
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-calendar"></i>
-                  <input type="number" placeholder="Deadline subscription (YYYYMMDD)" ng-model="project.deadlineSubscription"></input>
+                  <input type="number" class="pull-right" placeholder="Deadline subscription (YYYYMMDD)" ng-model="project.deadlineSubscription"></input>
                 </div>
                 <input type="submit" value="Create groupmolder" ng-click="save()">
               </form>

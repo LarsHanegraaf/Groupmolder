@@ -38,6 +38,13 @@ router.get('/:id', function(req,res) {
   });
 });
 
+router.get('/:id/groups', function(req,res) {
+  Project.findById({ _id: req.params.id }, function(err, project) {
+    if(err) throw err;
+    res.json(project.groups);
+  });
+});
+
 router.put('/:id', function(req,res) {
   Project.update({ _id: req.params.id },
     {$set: {name: req.body.name,

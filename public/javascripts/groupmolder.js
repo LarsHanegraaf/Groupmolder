@@ -13,16 +13,22 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/project-form.html',
             controller: 'AddProjectCtrl'
         })
-        .when('/project/:id', {
+        .when('/project/edit/:id', {
             templateUrl: 'partials/project-edit.html',
             controller: 'EditProjectCtrl'
         })
         .when('/project/delete/:id', {
             templateUrl: '/partials/project-delete.html',
             controller: 'DeleteProjectCtrl'
-        }).when('/register', {
+        })
+        .when('/project/:id', {
+            templateUrl: '/partials/project-view.html',
+            controller: 'ViewProjectCtrl'
+        })
+        .when('/register', {
           templateUrl: '/partials/register.html'
-		    }).when('/student', {
+		    })
+        .when('/student', {
           templateUrl: '/partials/student.html'
         })
         .otherwise({
@@ -79,6 +85,15 @@ app.controller('DeleteProjectCtrl', ['$scope', '$resource', '$location', '$route
       });
     }
   }]);
+
+  app.controller('ViewProjectCtrl', ['$scope', '$resource', '$routeParams',
+    function($scope, $resource, $routeParams) {
+      var Groups = $resource('/api/projects/:id/groups');
+
+      Groups.query({ id: $routeParams.id}, function(groups) {
+        $scope.groups = groups;
+      });
+}]);
 
 //jQuery animations
 $(document).ready(function() {
