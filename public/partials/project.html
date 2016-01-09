@@ -35,7 +35,7 @@
       </div>
 
       <!-- Pop up when remove button is clicked, TODO Behavior when clicking changed does have to be changed -->
-      <div class = "modal fade remove" id="remove" role="dialog" ng-controller="DeleteProjectCtrl">
+      <div class = "modal fade remove" id="remove" role="dialog"> <!--ng-controller="DeleteProjectCtrl"-->
           <div class = "modal-dialog">
               <div class = "modal-content" style="background-color: #435055">
                   <div class = "modal-header">
@@ -57,7 +57,7 @@
       </div>
 
       <!-- Create GroupMolder -->
-      <div class="col-sm-4">
+      <div class="col-sm-4" ng-controller="AddProjectCtrl">
         <div class="panel-body">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-calendar"></i>
-                  <input type="number" class="pull-right" placeholder="Deadline subscription (YYYYMMDD)" ng-model="project.deadlineSubscription"></input>
+                  <input type="text" class="pull-right datepicker" placeholder="Deadline subscription (YYYYMMDD)" ng-model="project.deadlineSubscription"></input>
                 </div>
                 <input type="submit" value="Create groupmolder" ng-click="save()">
               </form>

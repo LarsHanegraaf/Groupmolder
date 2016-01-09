@@ -9,10 +9,6 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/project.html',
             controller: 'ProjectCtrl'
         })
-        .when('/project/add', {
-            templateUrl: 'partials/project-form.html',
-            controller: 'AddProjectCtrl'
-        })
         .when('/project/edit/:id', {
             templateUrl: 'partials/project-edit.html',
             controller: 'EditProjectCtrl'
@@ -44,13 +40,13 @@ app.controller('ProjectCtrl', ['$scope', '$resource',
     });
 }]);
 
-app.controller('AddProjectCtrl', ['$scope', '$resource', '$location',
-  function($scope, $resource, $location) {
+app.controller('AddProjectCtrl', ['$scope', '$resource', '$route',
+  function($scope, $resource, $route) {
     $scope.save = function() {
       var Projects = $resource('/api/projects');
       Projects.save($scope.project, function(){
-        $location.path('/project');
       });
+      $route.reload();
     };
 }]);
 

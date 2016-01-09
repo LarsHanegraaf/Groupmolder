@@ -8,6 +8,7 @@ var projectSchema = new Schema({
   numStudents: Number,
   numStudentsPerGroup: Number,
   numGroups: Number,
+  deadlineSubscription: Date,
   groups: [GroupSchema]
 });
 
