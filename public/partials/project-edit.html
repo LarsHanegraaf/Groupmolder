@@ -10,28 +10,28 @@
           </div>
 		  <div class="panel-body">
           	<div class="input-wrapper">
-            	<i class="fa fa-info"></i><input type="text" ng-model="project.name"></input>
+            	<i class="fa fa-info"></i><input class="pull-right" type="text" ng-model="project.name"></input>
             </div>
             <div class="input-wrapper">
-            	<i class="fa fa-list-alt"></i><input type="text" ng-model="project.subjectCode"></input>
+            	<i class="fa fa-list-alt"></i><input class="pull-right" type="text" ng-model="project.subjectCode"></input>
             </div>
               <div class="input-wrapper">
                 <i class="fa fa-group"></i>
-                <input type="number" placeholder="Number of students" ng-model="project.numStudents"></input>
+                <input class="pull-right" type="number" placeholder="Number of students" ng-model="project.numStudents"></input>
               </div>
               <div class="input-wrapper">
                 <i class="fa fa-th-large"></i>
-                <input type="number" placeholder="Number of students per group" ng-model="project.numStudentsPerGroup"></input>
+                <input class="pull-right" type="number" placeholder="Number of students per group" ng-model="project.numStudentsPerGroup"></input>
               </div>
               <div class="input-wrapper">
                 <i class="fa fa-th"></i>
-                <input type="number" placeholder="Number of groups" ng-model="project.numGroups"></input>
+                <input class="pull-right" type="number" placeholder="Number of groups" ng-model="project.numGroups" disabled></input>
               </div>
               <div class="input-wrapper">
                 <i class="fa fa-calendar"></i>
-                <input type="number" placeholder="Deadline subscription (YYYYMMDD)" ng-model="project.deadlineSubscription"></input>
+                <input class="pull-right" type="number" placeholder="Deadline subscription (YYYYMMDD)" ng-model="project.deadlineSubscription"></input>
               </div>
-              <input type="submit" value="Save" ng-click="save()">
+              <input class="pull-right" type="submit" value="Save" ng-click="save()">
           </div>
         </div>
     </div>
@@ -47,25 +47,25 @@
 <form>
     <div class="form-group">
         <label>Name</label>
-        <input class="form-control" ng-model="project.name"></input>
+        <input class="pull-right" class="form-control" ng-model="project.name"></input>
     </div>
     <div class="form-group">
         <label>Subject Code</label>
-        <input class="form-control" ng-model="project.subjectCode"></input>
+        <input class="pull-right" class="form-control" ng-model="project.subjectCode"></input>
     </div>
     <div class="form-group">
         <label>Number of applying students</label>
-        <input class="form-control" ng-model="project.numStudents"></input>
+        <input class="pull-right" class="form-control" ng-model="project.numStudents"></input>
     </div>
     <div class="form-group">
         <label>Maximum amount of students per group</label>
-        <input class="form-control" ng-model="project.numStudentsPerGroup"></input>
+        <input class="pull-right" class="form-control" ng-model="project.numStudentsPerGroup"></input>
     </div>
     //numGroups has to be calculated automatically in future
     <div class="form-group">
         <label>Number of groups</label>
-        <input class="form-control" ng-model="project.numGroups"></input>
+        <input class="pull-right" class="form-control" ng-model="project.numGroups"></input>
     </div>
-    <input type="button" class="btn btn-primary" value="Save" ng-click="save()"></input>
+    <input class="pull-right" type="button" class="btn btn-primary" value="Save" ng-click="save()"></input>
 </form>
 -->

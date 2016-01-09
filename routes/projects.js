@@ -17,12 +17,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
+  var numberGroups = Math.ceil(req.body.numStudents/req.body.numStudentsPerGroup)
   Project.create({
     name: req.body.name,
     subjectCode: req.body.subjectCode,
     numStudents: req.body.numStudents,
     numStudentsPerGroup: req.body.numStudentsPerGroup,
-    numGroups: req.body.numGroups
+    numGroups: numberGroups
   }, function(err, newProject) {
     if (err) return handleError(err);
 
@@ -46,12 +47,13 @@ router.get('/:id/groups', function(req,res) {
 });
 
 router.put('/:id', function(req,res) {
+  var numberGroups = Math.ceil(req.body.numStudents/req.body.numStudentsPerGroup)
   Project.update({ _id: req.params.id },
     {$set: {name: req.body.name,
     subjectCode: req.body.subjectCode,
     numStudents: req.body.numStudents,
     numStudentsPerGroup: req.body.numStudentsPerGroup,
-    numGroups: req.body.numGroups}},
+    numGroups: numberGroups}},
   function(err, project) {
     if(err) throw err;
 

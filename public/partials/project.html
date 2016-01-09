@@ -34,8 +34,8 @@
           </div>
       </div>
 
-      <!-- Pop up when remove button is clicked -->
-      <div class = "modal fade remove" id="remove" role="dialog">
+      <!-- Pop up when remove button is clicked, TODO Behavior when clicking changed does have to be changed -->
+      <div class = "modal fade remove" id="remove" role="dialog" ng-controller="DeleteProjectCtrl">
           <div class = "modal-dialog">
               <div class = "modal-content" style="background-color: #435055">
                   <div class = "modal-header">
@@ -49,7 +49,7 @@
                   </div>
 
                   <div class="modal-footer">
-                      <a href="/#/project/delete/{{project._id}}" class="btn btn-default" style="background-color: #F25C05; color: white">Yes</a>
+                      <a ng-click="delete()" data-dismiss="modal" class="btn btn-default" style="background-color: #F25C05; color: white">Yes</a>
                       <a class="btn btn-default" data-dismiss="modal">No</a>
                   </div>
               </div>
@@ -80,10 +80,6 @@
                 <div class="input-wrapper">
                   <i class="fa fa-th-large"></i>
                   <input type="number" class="pull-right" placeholder="Number of students per group" ng-model="project.numStudentsPerGroup"></input>
-                </div>
-                <div class="input-wrapper">
-                  <i class="fa fa-th"></i>
-                  <input type="number" class="pull-right" placeholder="Number of groups" ng-model="project.numGroups"></input>
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-calendar"></i>
