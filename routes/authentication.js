@@ -2,12 +2,10 @@ var User = require('../models/user');
 var bcrypt = require('bcryptjs');
 
 module.exports = function(app, passport){
-  app.get('/register', function(req, res){
-    res.render('register');
-  });
 
   app.post('/register', function(req, res){
     req.body.email = req.body.email.toLowerCase();
+    console.log(req.body);
     User.findOne({'local.email': req.body.email}, function(err, user){
       if(err){
         return err;
@@ -15,15 +13,18 @@ module.exports = function(app, passport){
       if(!user){
         var hash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
         var newUser = new User({
+          role: req.body.role,
           local:{
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            password: hash
-          }
+            password: hash,
+          },
+          facebook: null
         });
         newUser.save(function(err){
           if(err){
+            console.log(err);
             res.render('register');
           }else{
             res.redirect('/');

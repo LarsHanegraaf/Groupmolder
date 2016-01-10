@@ -4,11 +4,11 @@ var userSchema = mongoose.Schema({
   local:{
     firstName: String,
     lastName: String,
-    email: {type: String, unique: true},
+    email: String,
     password: String
   },
   facebook:{
-    id: {type: String, unique: true},
+    id: String,
     name: String
   }
 });
