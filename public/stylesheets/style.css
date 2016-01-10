@@ -588,14 +588,14 @@ tr:nth-child(even) {
   .project th {
     font-size: 0.8em;
   }
-  .container {
+  .project .container {
     width: auto;
   }
-  .col-sm-4 {
+  .project .col-sm-4 {
     padding-left: 0px;
     padding-right: 0px;
   }
-  .col-sm-8 {
+  .project .col-sm-8 {
     padding-left: 0px;
     padding-right: 0px;
   }
