@@ -1,26 +1,27 @@
 <div class="project">
 <div class="container">
 <div class="row">
-<div class="col-sm-3"></div>
-<div class="col-sm-6">
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
     <div class="panel-body">
         <div class="panel panel-default">
           <div class="panel-heading">
-        <h1>Join Group</h1>
+        <h2>Join Group</h2>
           </div>
 		  <div class="panel-body">
         <p>Make sure you're logged in via Facebook, otherwise Node will crash!</p>
+            
         <ul>
             <li>Group: {{group.number}}</li>
             <li>Members: <div ng-repeat="t in [0,1,2,3]">{{group.members[t].facebook.name}}</li>
         </ul>
         <input type="submit" value="Join Group" ng-click="save()">
-        <a class="btn btn-default" href="/#/project/">No, Go Back</a>
+        <a class="btn btn-default" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
           </div>
         </div>
     </div>
 </div>
-<div class="col-sm-3"></div>
+<div class="col-sm-2"></div>
 </div>
 </div>
 </div>

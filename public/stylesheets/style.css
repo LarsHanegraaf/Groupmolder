@@ -495,7 +495,34 @@ Project page
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2
+    background-color: #f2f2f2;
+}
+
+.view-project table{
+  border: 1px solid black;
+  margin-bottom: 30px;
+}
+
+.view-project thead td{
+  border: 1px solid black;
+  padding: 100px;
+  vertical-align: middle;
+}
+
+.view-project a:hover{
+  color: #F25C05;
+  text-decoration: none;
+}
+
+.view-project tbody td{
+  border: 1px solid black;
+  padding: 100px;
+  vertical-align: middle;
+}
+
+.view-project tr{
+  border: 1px solid black;
+  padding: 10px;
 }
 
 .project .row:first-child{

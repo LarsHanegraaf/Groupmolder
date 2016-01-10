@@ -1,28 +1,47 @@
 <div class="project">
+<div class="view-project">
 <div class="container">
 <div class="row">
-<div class="col-sm-3"></div>
-<div class="col-sm-6">
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
     <div class="panel-body">
         <div class="panel panel-default">
           <div class="panel-heading">
-        <h1>Display Project</h1>
+        <h2>View Groupmolder</h2>
           </div>
 		  <div class="panel-body">
-
-        <p>
-            Groups:
-        </p>
-        <ul ng-repeat="group in groups">
-            <li><a href="/#/project/{{projectid}}/group/{{group.number}}">Group: {{group.number}}</a></li>
-            <li>Members: <div ng-repeat="t in [0,1,2,3]">{{group.members[t].facebook.name}}</li>
-        </ul>
-        <a class="btn btn-default" href="/#/project/">No, Go Back</a>
-          </div>
+            
+        <table ng-repeat="group in groups" align="center" class="table">
+          <thead>
+            <tr>
+              <td><a href="/#/project/{{projectid}}/group/{{group.number}}"><li class="fa fa-group"></li> Group: {{group.number}}</a></td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="t in [0,1,2,3]">
+              <td width="30%" >Profile picture</td>
+              <td>{{group.members[t].facebook.name}}</td>
+            </tr>
+          </tbody>
+          </table>
+            <a class="btn btn-default" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
         </div>
     </div>
 </div>
-<div class="col-sm-3"></div>
+<div class="col-sm-2"></div>
 </div>
 </div>
 </div>
+</div>
+
+<!--
+        <ul ng-repeat="group in groups">
+          <tr>
+            <td<a href="/#/project/{{projectid}}/group/{{group.number}}">Group: {{group.number}}</a>
+          </tr>
+            <li>Members: <div ng-repeat="t in [0,1,2,3]">{{group.members[t].facebook.name}}</li>
+        </ul>
+            <a class="btn btn-default" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
+          </div>
+-->
