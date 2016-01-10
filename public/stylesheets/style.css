@@ -549,16 +549,20 @@ tr:nth-child(even) {
 }
 
 .project .input-wrapper input{ /* reduce padding between input fields and icons */
-  padding-left: 0;
+  padding-left: 5px;
 }
 
 .register .input-wrapper input:focus{
-  padding-left: 0;
+  padding-left: 5px;
 }
 
 .project .panel a i{
   margin-right: 8px;
   display: inline-block;
+}
+
+.project .fa {
+  position: relative;
 }
 
 @media (max-width:991px) {
