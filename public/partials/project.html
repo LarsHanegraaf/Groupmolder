@@ -22,9 +22,12 @@
                       <tr ng-repeat='project in projects'>
                         <td>{{project.name}}</td>
                         <td>{{project.subjectCode}}</td>
-                        <td><a href="/#/project/{{project._id}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i>View</a>
-                            <a href="/#/project/edit/{{project._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i>Edit</a>
-                            <button class="btn btn-danger" data-toggle= "modal" data-target=".remove"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                        <td>
+                          <div class="inline">
+                            <a href="/#/project/{{project._id}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i><span>View</span></a>
+                            <a href="/#/project/edit/{{project._id}}" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><span>Edit</span></a>
+                            <a class="btn btn-danger" data-toggle= "modal" data-target=".remove"><i class="glyphicon glyphicon-remove"></i><span> Remove</span></a>
+                          </div>
                         </td>
                       </tr>
                     </tbody>
