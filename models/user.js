@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var userSchema = mongoose.Schema({
+  role: String,
   local:{
     firstName: String,
     lastName: String,

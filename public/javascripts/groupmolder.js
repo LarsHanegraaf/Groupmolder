@@ -44,27 +44,40 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 // get the role of the user
-app.factory('getUser', ['$http', function($http){
-  var role = 'superuser';
+app.factory('getUserRole', function(){
+
   var fac = {};
+  fac.role = 'superuser';
   fac.userInArray = function(roles){
-    if(role === 'superuser'){
+    console.log(this.role);
+    if(this.role === 'superuser'){
       return true;
     }
     for(var i = 0; i<roles.length; i++){
-      if(role === roles[i]){
+      if(this.role === roles[i]){
         return true;
       }
     }
     return false;
   }
+  fac.setRole = function(role){
+    this.role = role;
+  }
   return fac;
-}]);
+});
 
-app.run(function(getUser, $rootScope, $location){
+app.controller('elementCtrl', [
+  '$scope', '$attrs', 'getUserRole',
+  function($scope, $attrs, getUserRole) {
+    $scope.role = $attrs.role;
+    getUserRole.setRole($scope.role);
+  }
+]);
+
+app.run(function(getUserRole, $rootScope, $location){
   $rootScope.$on("$routeChangeStart", function(event, next, current){
     if(next.roles){
-      if(!getUser.userInArray(next.roles)){
+      if(!getUserRole.userInArray(next.roles)){
         $location.path('/');
       }
     }
