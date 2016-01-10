@@ -450,6 +450,19 @@ Register page
   display: inline-block;
 }
 
+#register-overview {
+  margin-top:100px;
+}
+
+@media (max-width:768px) {
+  .register .row:first-child{
+    margin: 0px 0;
+  }
+  #register-overview {
+    margin-top:10px;
+  }
+}
+
 /*
 =========================================================
 Project page
@@ -549,16 +562,20 @@ tr:nth-child(even) {
 }
 
 .project .input-wrapper input{ /* reduce padding between input fields and icons */
-  padding-left: 0;
+  padding-left: 5px;
 }
 
 .register .input-wrapper input:focus{
-  padding-left: 0;
+  padding-left: 5px;
 }
 
 .project .panel a i{
   margin-right: 8px;
   display: inline-block;
+}
+
+.project .fa {
+  position: relative;
 }
 
 @media (max-width:991px) {
@@ -571,14 +588,14 @@ tr:nth-child(even) {
   .project th {
     font-size: 0.8em;
   }
-  .container {
+  .project .container {
     width: auto;
   }
-  .col-sm-4 {
+  .project .col-sm-4 {
     padding-left: 0px;
     padding-right: 0px;
   }
-  .col-sm-8 {
+  .project .col-sm-8 {
     padding-left: 0px;
     padding-right: 0px;
   }
