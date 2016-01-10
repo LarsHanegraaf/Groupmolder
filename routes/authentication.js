@@ -5,7 +5,6 @@ module.exports = function(app, passport){
 
   app.post('/register', function(req, res){
     req.body.email = req.body.email.toLowerCase();
-    console.log(req.body);
     User.findOne({'local.email': req.body.email}, function(err, user){
       if(err){
         return err;
@@ -24,8 +23,7 @@ module.exports = function(app, passport){
         });
         newUser.save(function(err){
           if(err){
-            console.log(err);
-            res.render('register');
+            res.render('/#/register');
           }else{
             res.redirect('/');
           }
@@ -34,30 +32,40 @@ module.exports = function(app, passport){
     });
   });
 
-  app.get('/login', function(req, res){
-    res.render('login');
+  app.get('/#/login', function(req, res){
+    res.render('layout');
   });
 
-  app.post('/login', passport.authenticate('local', { successRedirect: '/',
-                                     failureRedirect: '/login' }));
+  app.get('/#/student', function(req, res){
+    res.render('layout');
+  });
+
+  app.get('/#/project', function(req, res){
+    res.render('layout');
+  })
+
+  app.post('/login', passport.authenticate('local'), function(req, res){
+    if(req.user.role=== 'teacher'){
+      res.redirect('/#/project');
+    }else if(req.user.role === 'student'){
+      res.redirect('/#/student');
+    }else{
+      res.redirect('/#/login');
+    }
+  });
 
   app.get('/auth/facebook', passport.authenticate('facebook'));
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {successRedirect: '/',
-                                      failureRedirect: '/login'}));
+                                      failureRedirect: '/#/login'}));
   app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
   });
-
-  app.get('/profile', isLoggedIn, function(req, res){
-    res.send('you are logged in!');
-  })
 }
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
-
     res.redirect('/');
 }

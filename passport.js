@@ -2,6 +2,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var fbConfig = require('./config/auth');
 var User = require('./models/user');
+var bcrypt = require('bcryptjs');
 
 module.exports = function(passport){
   passport.serializeUser(function(user, done) {
@@ -23,14 +24,18 @@ module.exports = function(passport){
     },
     function(email, password, done) {
       User.findOne({ 'local.email': email }, function (err, user) {
-        if (err) { return done(err); }
+        if (err) { console.log('some weird error'); return done(err); }
         if (!user) {
+          console.log('no user');
           return done(null, false, { message: 'Incorrect username.' });
         }
         if (!bcrypt.compareSync(password, user.local.password)) {
+          console.log('wrong password');
           return done(null, false, { message: 'Incorrect password.' });
+        }else{
+          console.log('correct password');
+          return done(null, user);
         }
-        return done(null, user);
       });
     }
   ));
@@ -49,6 +54,7 @@ module.exports = function(passport){
           done(err, user);
         }else{
           var newuser = new User({
+            role: 'teacher',
             facebook:{
               id: profile.id,
               name: profile.displayName

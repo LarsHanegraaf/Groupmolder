@@ -52,6 +52,9 @@ app.use(passport.session());
 app.use(function(req, res, next){
   if(req.user){
     res.locals.user = req.user;
+  }else{
+    res.locals.user = {};
+    res.locals.user.role = 'anon';
   }
   next();
 })

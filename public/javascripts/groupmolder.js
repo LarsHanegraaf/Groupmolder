@@ -41,7 +41,7 @@ app.config(['$routeProvider', function($routeProvider){
         })
         .when('/login', {
           templateUrl: '/partials/login.html',
-          roles: ['teacher', 'student']
+          roles: ['anon']
         })
         .otherwise({
             redirectTo: '/'

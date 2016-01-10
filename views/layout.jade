@@ -43,7 +43,7 @@ html(ng-app='GroupMolder')
           a.navbar-brand(href='#/')
             img#img-menu(src='/images/logo.png')
         .collapse.navbar-collapse.navHeaderCollapse
-          if !user
+          if user.role == 'anon'
             a(href='/auth/facebook', target="_self")
               button#facebook-signin.btn.btn-primary.pull-right
                 i.fa.fa-facebook-official
@@ -58,7 +58,7 @@ html(ng-app='GroupMolder')
                 |  Log out
 
     block content
-    div(ng-controller="elementCtrl", data-role='superuser')
+    div(ng-controller="elementCtrl", data-role=user.role)
     a.back-to-top(href='#')
       i.fa.fa-chevron-up
     .footer

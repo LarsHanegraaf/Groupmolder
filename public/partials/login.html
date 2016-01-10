@@ -9,13 +9,15 @@
             <h2>Log in with your email</h2>
           </div>
 		  <div class="panel-body">
-          	<div class="input-wrapper">
-            	<i class="fa fa-envelope"></i><input class="pull-right" type="text" placeholder="Email"></input>
+        <form action="/login" method='post'>
+            <div class="input-wrapper">
+            	<i class="fa fa-envelope"></i><input class="pull-right" type="text" placeholder="Email" name='email'></input>
             </div>
             <div class="input-wrapper">
-            	<i class="fa fa-lock"></i><input class="pull-right" type="password" placeholder="Password"></input>
+            	<i class="fa fa-lock"></i><input class="pull-right" type="password" placeholder="Password" name='password'></input>
             </div>
               <input class="pull-right" type="submit" value="Log in" ng-click="#">
+        </form>
               <div id="register">Don't you have any account yet? <a href="/#/register">Create one for free!</a></div>
           </div>
         </div>
