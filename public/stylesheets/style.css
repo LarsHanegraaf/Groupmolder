@@ -58,6 +58,11 @@ a {
 	background-color: #184c90;
 }
 
+#login-button{
+  color: black;
+  text-decoration: none;
+}
+
 .navbar-toggle {
   background-color: transparent;
 }
@@ -560,6 +565,22 @@ tr:nth-child(even) {
 #popup{
     font-family: 'Fira Sans';
 }
+
+#register{
+  font-size: 14px;
+  color: #435055;
+  font-style: italic;
+}
+
+#register a{
+  color: #435055;
+}
+
+#register a:hover{
+  color: #F25C05;
+}
+
+
 
 /*
 ==============================================================
