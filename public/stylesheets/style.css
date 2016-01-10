@@ -450,6 +450,19 @@ Register page
   display: inline-block;
 }
 
+#register-overview {
+  margin-top:100px;
+}
+
+@media (max-width:768px) {
+  .register .row:first-child{
+    margin: 0px 0;
+  }
+  #register-overview {
+    margin-top:10px;
+  }
+}
+
 /*
 =========================================================
 Project page

@@ -3,30 +3,8 @@
   <div class="container reasons">
     <div class="row">
 
-			<!-- Overview -->
-      <div class="col-sm-6 vcenter">
-        <h1>The easiest way to form groups</h1>
-        <div class="row">
-          <div class="reason col-xs-4">
-            <i class="fa fa-clock-o"></i>
-            <span>waste</span>
-            <span>no time</span>
-          </div>
-          <div class="reason col-xs-4">
-            <i class="fa fa-users"></i>
-            <span>random</span>
-            <span>group</span>
-          </div>
-          <div class="reason col-xs-4">
-            <i class="fa fa-facebook-f"></i>
-            <span>facebook</span>
-            <span>sign in</span>
-          </div>
-        </div>
-      </div>
-
-			<!-- Registration Form -->
-      <div class="col-sm-6 vcenter">
+      <!-- Registration Form -->
+      <div class="col-sm-6 vcenter" id="register-form">
         <div id="signup-left"></div>
         <div id="signup-right"></div>
         <!--<img id="signup-left" src="/images/signup-left.png" alt="">
@@ -49,21 +27,45 @@
                 <i class="fa fa-envelope"></i>
                 <input class="pull-right" type="email" placeholder="email" name="email">
               </div>
-			  			<div class="input-wrapper">
+              <div class="input-wrapper">
                 <i class="fa fa-lock"></i>
                 <input class="pull-right" type="password" placeholder="password" name="password">
               </div>
-							<div>
-								<input class="pull-right" type="radio" name="role" style="width: 12px;" value="student"><h4 style="text-align: left"><i class="fa fa-graduation-cap"></i> Student</h4>
-								<input class="pull-right" type="radio" name="role" style="width: 12px;" value="teacher"><h4 style="text-align: left"><i class="fa fa-briefcase"></i> Teacher</h4>
-							</div>
+              <div>
+                <input class="pull-right" type="radio" name="role" style="width: 12px;" value="student"><h4 style="text-align: left"><i class="fa fa-graduation-cap"></i> Student</h4>
+                <input class="pull-right" type="radio" name="role" style="width: 12px;" value="teacher"><h4 style="text-align: left"><i class="fa fa-briefcase"></i> Teacher</h4>
+              </div>
               <input type="submit" value="Sign up">
             </form>
             <h4>OR</h4>
-            <a href="/auth/facebook"><i class="fa fa-facebook-square"></i>Sign up with Facebook</a>
+            <a href="/auth/facebook"><i class="fa fa-facebook-square"></i>Log in with Facebook</a>
           </div>
         </div>
       </div>
+
+			<!-- Overview -->
+      <div class="col-sm-6 vcenter pull-left" id="register-overview">
+        <h1>The easiest way to form groups</h1>
+        <div class="row">
+          <div class="reason col-xs-4">
+            <i class="fa fa-clock-o"></i>
+            <span>waste</span>
+            <span>no time</span>
+          </div>
+          <div class="reason col-xs-4">
+            <i class="fa fa-users"></i>
+            <span>random</span>
+            <span>group</span>
+          </div>
+          <div class="reason col-xs-4">
+            <i class="fa fa-facebook-f"></i>
+            <span>facebook</span>
+            <span>sign in</span>
+          </div>
+        </div>
+      </div>
+
+
 
     </div>
   </div>
