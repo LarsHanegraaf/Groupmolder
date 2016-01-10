@@ -571,10 +571,18 @@ tr:nth-child(even) {
   .project th {
     font-size: 0.8em;
   }
+  .container {
+    width: auto;
+  }
+  .col-sm-4 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .col-sm-8 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
-
-
-
 
 #popup{
     font-family: 'Fira Sans';
@@ -593,8 +601,6 @@ tr:nth-child(even) {
 #register a:hover{
   color: #F25C05;
 }
-
-
 
 /*
 ==============================================================
