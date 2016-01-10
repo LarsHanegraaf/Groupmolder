@@ -533,6 +533,11 @@ tr:nth-child(even) {
   background-color: #E0E4E7; /* Background color of form */
 }
 
+.project #back-button{
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
 .project .panel h2{ /* Title of forms */
   color: #F25C05;
   font-weight: bold;
@@ -782,8 +787,8 @@ Student page
 
 .group .groupnr{
   position: absolute;
-  margin-left: 91%;
-  margin-top: 89%;
+  margin-left: 48%;
+  margin-top: 48%;
   color: white;
   font-size: 28px;
   font-weight: 500;
