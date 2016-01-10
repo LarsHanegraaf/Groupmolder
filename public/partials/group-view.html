@@ -6,17 +6,15 @@
     <div class="panel-body">
         <div class="panel panel-default">
           <div class="panel-heading">
-        <h1>Display Project</h1>
+        <h1>Join Group</h1>
           </div>
 		  <div class="panel-body">
-
-        <p>
-            Groups:
-        </p>
-        <ul ng-repeat="group in groups">
-            <li><a href="/#/project/{{projectid}}/group/{{group.number}}">Group: {{group.number}}</a></li>
+        <p>Make sure you're logged in via Facebook, otherwise Node will crash!</p>
+        <ul>
+            <li>Group: {{group.number}}</li>
             <li>Members: <div ng-repeat="t in [0,1,2,3]">{{group.members[t].facebook.name}}</li>
         </ul>
+        <input type="submit" value="Join Group" ng-click="save()">
         <a class="btn btn-default" href="/#/project/">No, Go Back</a>
           </div>
         </div>

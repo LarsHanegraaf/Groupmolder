@@ -26,6 +26,11 @@ app.config(['$routeProvider', function($routeProvider){
             controller: 'ViewProjectCtrl',
             roles: ['teacher', 'student']
         })
+        .when('/project/:id/group/:number', {
+            templateUrl: '/partials/group-view.html',
+            controller: 'JoinGroupCtrl',
+            roles: ['teacher', 'student']
+        })
         .when('/register', {
           templateUrl: '/partials/register.html',
           roles: ['anon']
@@ -140,9 +145,33 @@ app.controller('DeleteProjectCtrl', ['$scope', '$resource', '$location', '$route
     function($scope, $resource, $routeParams) {
       var Groups = $resource('/api/projects/:id/groups');
 
+      $scope.projectid = $routeParams.id;
+
       Groups.query({ id: $routeParams.id}, function(groups) {
         $scope.groups = groups;
       });
+
+      var Projects = $resource('api/projects');
+      Projects.query(function(project){
+        $scope.project = project;
+      });
+}]);
+
+app.controller('JoinGroupCtrl', ['$scope', '$resource', '$location', '$routeParams', '$http',
+  function($scope, $resource, $location, $routeParams, $http) {
+    var Groups = $resource('api/projects/:id/groups/:number', {id: '@_id', number: '@number'}, {
+      update: { method: 'PUT'}
+    });
+
+    Groups.get({ id: $routeParams.id, number: $routeParams.number}, function(group) {
+      console.log($routeParams);
+      $scope.group = group;
+    });
+
+    $scope.save = function() {
+      $http.post("api/projects/" + $routeParams.id + "/groups/" + $routeParams.number);
+      $location.path('/project/' + $routeParams.id);
+    }
 }]);
 
 //jQuery animations

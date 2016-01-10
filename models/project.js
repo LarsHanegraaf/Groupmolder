@@ -9,7 +9,8 @@ var projectSchema = new Schema({
   numStudentsPerGroup: Number,
   numGroups: Number,
   deadlineSubscription: Date,
-  groups: [GroupSchema]
+  groups: [GroupSchema],
+  admin: [{type: Schema.Types.ObjectId, ref: 'User'}]
 });
 
 module.exports = mongoose.model('Project', projectSchema);

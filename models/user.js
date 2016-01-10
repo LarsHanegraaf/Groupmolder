@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
-var userSchema = mongoose.Schema({
+var Schema = mongoose.Schema;
+
+var userSchema = new Schema({
   role: String,
   local:{
     firstName: String,
@@ -10,7 +12,8 @@ var userSchema = mongoose.Schema({
   facebook:{
     id: String,
     name: String
-  }
+  },
+  groups: [{type: Schema.Types.ObjectId, ref: 'Group'}]
 });
 
 module.exports = mongoose.model('User', userSchema);
