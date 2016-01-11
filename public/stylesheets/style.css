@@ -681,10 +681,11 @@ Student page
 
 .student .search-bar{
   height: 30px;
-  width: 50%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   background-color: white;
   font-size: 1.2em;
   text-align: center;
@@ -694,17 +695,34 @@ Student page
 }
 
 .student .information{
-  min-width: 100%;
+  width: 100%;
   background-color: white;
   display: inline-block;
   position: relative;
   text-align: center;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  padding: 30px;
 }
+
+.student .search{
+  width: 100%;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-right: 15px;
+  margin-left: -5px;
+  padding: 30px;
+}
+
 
 .student #question-mark{
   font-size: 10em;
   font-weight: 600;
-  margin-top: 15%;
+  margin-top: 5%;
+  margin-bottom: -5%;
 }
 
 @media(max-width: 1000px){
@@ -714,13 +732,16 @@ Student page
 }
 
 .student .random{
-  min-width: 100%;
+  width: 100%;
   background-color: #F25C05;
   display: inline-block;
   position: relative;
   text-align: center;
   color: white;
-  height:auto;
+  margin-bottom: 30px;
+  margin-right: 5px;
+  margin-left: 5px;
+
 }
 
 .student .random:hover{
@@ -731,6 +752,7 @@ Student page
   color: #F25C05;
   font-size: 25px;
   font-weight: 500;
+  margin-top: 10px;
 }
 
 @media(max-width: 1000px){
@@ -773,7 +795,7 @@ Student page
   display: inline-block;
   position: relative;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .image img{
@@ -806,7 +828,7 @@ Student page
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
-    flex:1 0 auto;
+    flex: 1 0 auto;
 }
 
 @media (max-width:462px) {
@@ -816,6 +838,17 @@ Student page
     width: auto;
   }
   .register .input-wrapper input {
+    padding-left: 5px;
+  }
+}
+
+@media (max-width:462px) {
+  .project .panel {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: auto;
+  }
+  .project .input-wrapper input {
     padding-left: 5px;
   }
 }
@@ -833,4 +866,74 @@ Student page
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+
+.student .panel h2{
+  color: #F25C05;
+  font-weight: bold;
+  text-align: center;
+}
+
+.student .panel-heading{
+  background-color: white;
+}
+
+.student .panel input{
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 1.2em;
+  color: #435055;
+  border: none;
+}
+
+.student .panel input[type="submit"],
+.student .panel a{
+  color: white;
+  background-color: #F25C05;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.student .panel input[type="submit"]:hover{
+  background-color: #c74813;
+}
+
+.student .panel a:hover{ /* hover Facebook button */
+  background-color: #184c90;
+}
+
+.student .panel h4{
+  text-align: center;
+  color: #74848A;
+}
+
+.student .panel a{
+  padding: 10px;
+  background-color: #3765A3;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-bottom: 0;
+  text-decoration: none;
+  float: left;
+}
+
+.student .panel{
+  position: relative;
+}
+
+.student .search-button{
+  color: white;
+  background-color: #F25C05;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  width: 100%;
+}  
 }
