@@ -2,7 +2,7 @@
   <div class="view-project">
     <div class="container">
 
-      <!-- Search bar 
+      <!-- Search bar
       <input type="text" ng-model="search" class="search-bar" placeholder="&#xF002; Search for student">-->
     <div class="row equal">
       <div class="col-sm-4">
@@ -18,18 +18,18 @@
           <h4 class="h4-bold" id="information">ZZZ</h4>
         </div>
       </div>
-      
+
       <div class="col-sm-4">
         <div class="random">
           <p id="question-mark">?</p>
           <h4>Random assignment</h4>
         </div>
       </div>
-      
+
         <div class="col-sm-4">
           <div class="search">
           <h2>Search student</h2>
-      <input type="text" class="search-bar" placeholder="First name" style="margin-top: 35px;">
+      <input type="text" class="search-bar" placeholder="First name" style="margin-top: 35px;" ng-model='search'>
       <input type="text" class="search-bar" placeholder="Last name">
       <input type="submit" value="Search" class="search-button">
         </div>
@@ -38,8 +38,9 @@
 
       <div class="col-sm-4" ng-repeat="group in groups">
         <a href="/#/project/{{projectid}}/group/{{group.number}}" class="group">
-          <div class="image" ng-repeat="t in [0,1,2,3]">
+          <div class="image" ng-repeat="t in [0,1,2,3] | filter: search">
             <img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}"/>
+            <span>{{group.members[t].facebook.name}}</span>
           </div>
           <div class="groupnr">
             <p>{{group.number}}</p>

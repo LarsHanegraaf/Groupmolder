@@ -85,15 +85,16 @@ a {
     background-color: white;
 }
 
-.navbar .pull-right span{
+.navbar  #name{
   display: inline-block;
   margin-right: 50px;
   font-size: 1.4em;
   position: relative;
-  top: 5px;
+  top: 12px;
+  color: black;
 }
 @media(max-width: 768px){
-  .navbar .pull-right span{
+  .navbar  #name{
     display: none;
   }
 }
