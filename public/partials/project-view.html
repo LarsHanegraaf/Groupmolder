@@ -1,52 +1,52 @@
 <div class="student">
-<div class="view-project">
-<div class="container">
-  
-  <!-- Search bar -->
-  <input type="text" ng-model="search" class="search-bar" placeholder="&#xF002; Search for student">
+  <div class="view-project">
+    <div class="container">
 
-		<div class="row equal">
-			<div class="col-xs-4">
-				<div class="information">
-                    <h2>Information</h2>
-                    <h4 class="h4-regular">Course:</h4>
-                    <h4 class="h4-bold">XXX</h4>
-                    <h4 class="h4-regular">Subject Code:</h4>
-                    <h4 class="h4-bold">YYY</h4>
-                    <h4 class="h4-regular">Number of groups:</h4>
-                    <h4 class="h4-bold">ZZZ</h4>
-                    <h4 class="h4-regular">Number of students:</h4>
-                    <h4 class="h4-bold" id="information">ZZZ</h4>
-                </div>
-            </div>
+      <!-- Search bar -->
+      <input type="text" ng-model="search" class="search-bar" placeholder="&#xF002; Search for student">
 
-            <div class="col-xs-4">
-				<div class="random">
-                    <p id="question-mark">?</p>
-                    <h4>Random assignment</h4>
-                </div>
-            </div>
-
-            <div class="col-xs-4" ng-repeat="group in groups">
-                <a href="/#/project/{{projectid}}/group/{{group.number}}" class="group">
-                <div class="image" ng-repeat="t in [0,1,2,3]">
-                  <img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}"/>
-                  </div>
-                <div class="groupnr">
-                  <p>{{group.number}}</p>
-                  </div></a>
-              </div>
+      <div class="col-sm-4">
+        <div class="information">
+          <h2>Information</h2>
+          <h4 class="h4-regular">Course:</h4>
+          <h4 class="h4-bold">XXX</h4>
+          <h4 class="h4-regular">Subject Code:</h4>
+          <h4 class="h4-bold">YYY</h4>
+          <h4 class="h4-regular">Number of groups:</h4>
+          <h4 class="h4-bold">ZZZ</h4>
+          <h4 class="h4-regular">Number of students:</h4>
+          <h4 class="h4-bold" id="information">ZZZ</h4>
+        </div>
       </div>
+
+      <div class="col-sm-4">
+        <div class="random">
+          <p id="question-mark">?</p>
+          <h4>Random assignment</h4>
+        </div>
+      </div>
+
+      <div class="col-sm-4" ng-repeat="group in groups">
+        <a href="/#/project/{{projectid}}/group/{{group.number}}" class="group">
+          <div class="image" ng-repeat="t in [0,1,2,3]">
+            <img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}"/>
+          </div>
+          <div class="groupnr">
+            <p>{{group.number}}</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
 </div>
-</div>
-</div>  
-  
-  
-  
-<!--  
-  
-  
-  
+
+
+
+<!--
+
+
+
 <div class="row">
 <div class="col-sm-2"></div>
 <div class="col-sm-8">

@@ -1,29 +1,29 @@
 <div class="project">
-<div class="container">
-<div class="row">
-<div class="col-sm-2"></div>
-<div class="col-sm-8">
-    <div class="panel-body">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-        <h2>Group {{group.number}}</h2>
-          </div>
-		  <div class="panel-body">
-               <div class="group" style="margin: 5% 20% 5% 20%">
-                  <div class="image" ng-repeat="t in [0,1,2,3]">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <div class="panel-body">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>Group {{group.number}}</h2>
+            </div>
+	          <div class="panel-body">
+              <div class="group" style="margin: 5% 20% 5% 20%">
+                <div class="image" ng-repeat="t in [0,1,2,3]">
                   <img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}"/>
-                  </div>
-                   <input type="submit" value="Join group {{group.number}}" ng-click="save()">
                 </div>
+                <input type="submit" value="Join group {{group.number}}" ng-click="save()">
+              </div>
+            </div>
+            <a class="btn btn-default" id="back-button" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
           </div>
-              <a class="btn btn-default" id="back-button" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
     </div>
+  </div>
 </div>
-<div class="col-sm-2"></div>
-</div>
-</div>
-</div>
-
 
     <!--
         <p>Make sure you're logged in via Facebook, otherwise Node will crash!</p>
