@@ -30,7 +30,7 @@
             <div class="col-xs-4" ng-repeat="group in groups">
                 <a href="/#/project/{{projectid}}/group/{{group.number}}" class="group">
                 <div class="image" ng-repeat="t in [0,1,2,3]">
-                  <img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}" class="clearfix"/>
+                  <img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}"/>
                   </div>
                 <div class="groupnr">
                   <p>{{group.number}}</p>
