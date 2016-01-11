@@ -11,14 +11,14 @@
 		  <div class="panel-body">
                <div class="group" style="margin: 5% 20% 5% 20%">
                 <div class="image">
-                   	<img ng-repeat="t in [0,1,2,3]" src="images/profile.jpg" title="{{group.members[t].facebook.name}}" /> <!-- the src should be adjusted into the facebook profile picture--> 
+                   	<img ng-repeat="t in [0,1,2,3]" src="graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}" /> <!-- the src should be adjusted into the facebook profile picture--> 
                 </div>
                 <div>
-                  <input type="submit" value="Join group {{group.number}}" ng-click="save()">     
+                  <input type="submit" value="Join group {{group.number}}" ng-click="save()">
                 </div>
-              </div>    
+              </div>
         </div>
-              <a class="btn btn-default" id="back-button" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>   
+              <a class="btn btn-default" id="back-button" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
     </div>
 </div>
 <div class="col-sm-2"></div>
@@ -26,10 +26,10 @@
 </div>
 </div>
 
-  
-    <!--          
+
+    <!--
         <p>Make sure you're logged in via Facebook, otherwise Node will crash!</p>
-            
+
         <ul>
             <li>Group: {{group.number}}</li>
             <li>Members: <div ng-repeat="t in [0,1,2,3]">{{group.members[t].facebook.name}}</li>
@@ -37,4 +37,4 @@
         <input type="submit" value="Join Group" ng-click="save()">
         <a class="btn btn-default" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
           </div>
--->          
+-->

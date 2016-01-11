@@ -54,7 +54,6 @@ app.factory('getUserRole', function(){
   var fac = {};
   fac.role = 'superuser';
   fac.userInArray = function(roles){
-    console.log(this.role);
     if(this.role === 'superuser'){
       return true;
     }
@@ -96,6 +95,7 @@ app.controller('ProjectCtrl', ['$scope', '$resource',
     var Projects = $resource('api/projects');
     Projects.query(function(projects){
       $scope.projects = projects;
+      console.log(projects);
     });
 }]);
 

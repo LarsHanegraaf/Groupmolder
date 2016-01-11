@@ -10,7 +10,7 @@
         <h2>View Groupmolder</h2>
           </div>
 		  <div class="panel-body">
-            
+
         <table ng-repeat="group in groups" align="center" class="table">
           <thead>
             <tr>
@@ -20,7 +20,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="t in [0,1,2,3]">
-              <td width="30%" >Profile picture</td>
+              <td width="30%" ><img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" alt=""></im></td>
               <td>{{group.members[t].facebook.name}}</td>
             </tr>
           </tbody>
