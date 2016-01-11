@@ -773,12 +773,13 @@ Student page
 }
 
 .student .information h2{
-  margin-top: 20%;
+  margin-top: 15%;
 }
 
 .student .group{
   min-width: 100%;
-  background-color: white;
+  background: url('/images/add.png') repeat;
+  -webkit-background-size: 50%;
   display: inline-block;
   position: relative;
   text-align: center;
@@ -789,6 +790,7 @@ Student page
   position: relative;
   display: inline;
   width: 50%;
+  height: 50%;
   float: left;
 }
 
@@ -796,13 +798,14 @@ Student page
   position: relative;
   display: inline;
   width: 50%;
+  height: 50%;
   float: left;
 }
 
-.group .groupnr{
-  position: absolute;
-  margin-left: 48%;
-  margin-top: 48%;
+.groupnr{
+  position: relative;
+  margin-left: 85%;
+  margin-top: 85%;
   color: white;
   font-size: 28px;
   font-weight: 500;
@@ -810,7 +813,7 @@ Student page
 }
 
 @media(max-width: 1000px){
-.group .groupnr{
+.groupnr{
   position: absolute;
   margin-left: 85%;
   margin-top: 85%;
