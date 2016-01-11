@@ -144,6 +144,12 @@ app.controller('DeleteProjectCtrl', ['$scope', '$resource', '$location', '$route
   app.controller('ViewProjectCtrl', ['$scope', '$resource', '$routeParams',
     function($scope, $resource, $routeParams) {
       var Groups = $resource('/api/projects/:id/groups');
+      
+      var Projects = $resource('api/projects/' + $routeParams.id);
+    Projects.query(function(projects){
+      $scope.projects = projects;
+      console.log(projects);
+    });
 
       $scope.projectid = $routeParams.id;
 

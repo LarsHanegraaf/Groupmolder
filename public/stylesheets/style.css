@@ -655,6 +655,16 @@ tr:nth-child(even) {
   color: #F25C05;
 }
 
+.fa-input {
+  font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#fa-input{
+  color: white;
+}
+
+
+
 /*
 ==============================================================
 Student page
