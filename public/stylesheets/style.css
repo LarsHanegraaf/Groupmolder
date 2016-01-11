@@ -85,6 +85,20 @@ a {
     background-color: white;
 }
 
+.navbar .pull-right span{
+  display: inline-block;
+  margin-right: 50px;
+  font-size: 1.4em;
+  position: relative;
+  top: 5px;
+}
+@media(max-width: 768px){
+  .navbar .pull-right span{
+    display: none;
+  }
+}
+
+
 @media (max-width:494px) {
   #img-menu {
     max-width: 190px;
@@ -935,5 +949,5 @@ Student page
   margin: 10px 0;
   font-size: 1.5em;
   width: 100%;
-}  
+}
 }
