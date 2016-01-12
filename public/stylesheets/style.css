@@ -474,7 +474,7 @@ Register page
     margin: 0px 0;
   }
   #register-overview {
-    margin-top:10px;
+    display: none;
   }
 }
 
