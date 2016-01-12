@@ -58,23 +58,31 @@ router.get('/:id/groups', function(req,res) {
 });
 
 router.get('/:id/groups/:number', function(req,res) {
-  Project.findById({ _id: req.params.id }).populate('groups.members').exec(function(err, project){
-    if(err) throw err;
+  if(req.user) {
+    Project.findById({ _id: req.params.id }).populate('groups.members').exec(function(err, project){
+      if(err) throw err;
 
-    res.json(project.groups[req.params.number-1]);
-  });
+      res.json(project.groups[req.params.number-1]);
+    });
+  } else {
+    console.log('user is not logged in')
+  }
 });
 
 router.post('/:id/groups/:number', function(req,res) {
-  Project.findById({ _id: req.params.id }, function(err, project) {
-    if(err) throw err;
+  if(req.user) {
+    Project.findById({ _id: req.params.id }, function(err, project) {
+      if(err) throw err;
 
-    project.groups[req.params.number-1].members.push({_id: req.user._id});
-    project.save(function(err){
-      if (err) throw err;
+      project.groups[req.params.number-1].members.push({_id: req.user._id});
+      project.save(function(err){
+        if (err) throw err;
+      });
+      res.json(project.groups[req.params.number-1]);
     });
-    res.json(project.groups[req.params.number-1]);
-  });
+  } else {
+    console.log('user not logged in')
+  }
 });
 /*
 router.post('/:id/groups', function(req,res) {
