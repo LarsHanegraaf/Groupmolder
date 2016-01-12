@@ -629,7 +629,7 @@ tr:nth-child(even) {
   position: relative;
 }
 
-@media (max-width:991px) {
+@media (max-width:1230px) {
   .project span {
     display: none;
   }
@@ -678,7 +678,9 @@ tr:nth-child(even) {
   color: white;
 }
 
-
+#alignv {
+  vertical-align: middle;
+}
 
 /*
 ==============================================================
