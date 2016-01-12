@@ -7,6 +7,7 @@ mongoose.createConnection(dbURL);
 
 var Project = require('../models/project');
 var Group = require('../models/group');
+var User = require('../models/user');
 
 router.get('/', function(req, res) {
   Project.find({}, function(err, projects) {
@@ -65,22 +66,46 @@ router.get('/:id/groups/:number', function(req,res) {
       res.json(project.groups[req.params.number-1]);
     });
   } else {
+    //TODO let the user know that is not logged in
     console.log('user is not logged in')
   }
 });
 
 router.post('/:id/groups/:number', function(req,res) {
+  var joinedGroup = false;
   if(req.user) {
-    Project.findById({ _id: req.params.id }, function(err, project) {
-      if(err) throw err;
+//make sure user doesn't join a project in which he/she already joined
+    for(i=0; i < req.user.groups.length; i++) {
+      if(req.user.groups[i] == req.params.id) {
+        joinedGroup = true;
+      }
+    }
+    if(joinedGroup){
+      //TODO let the user know that he already joined a group
+      console.log("User already joined a group");
+      joinedGroup = false;
+    } else {
+      Project.findById({ _id: req.params.id }, function(err, project) {
+        if(err) throw err;
 
-      project.groups[req.params.number-1].members.push({_id: req.user._id});
-      project.save(function(err){
-        if (err) throw err;
+        project.groups[req.params.number-1].members.push({_id: req.user._id});
+        project.save(function(err){
+          if (err) throw err;
+        });
+
+        res.json(project.groups[req.params.number-1]);
       });
-      res.json(project.groups[req.params.number-1]);
-    });
+      User.findById({_id: req.user._id}, function(err, user) {
+        if(err) throw err;
+        console.log(user);
+        user.groups.push({_id: req.params.id});
+        user.save(function(err){
+          if(err) throw err;
+        });
+      });
+    }
   } else {
+    //TODO let the user know that he is not logged in
     console.log('user not logged in')
   }
 });
