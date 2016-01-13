@@ -841,11 +841,13 @@ Student page
   text-shadow: 2px 2px black;
 }
 
-.equal, .equal > div[class*='col-'] {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    flex: 1 0 auto;
+@media (min-width:768px) {
+  .equal, .equal > div[class*='col-'] {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      flex: 1 0 auto;
+  }
 }
 
 @media (max-width:462px) {
@@ -873,10 +875,18 @@ Student page
 @media (max-width:767px) {
   .student .information {
     margin-bottom: 15px;
+    margin-left: 0px;
     max-width: 350px;
   }
   .student .random {
     margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .student .search {
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .student .col-sm-4 {
     max-width: 350px;
