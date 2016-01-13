@@ -40,7 +40,7 @@
         <a href="/#/project/{{projectid}}/group/{{group.number}}" class="group">
           <div class="image" ng-repeat="t in [0,1,2,3] | filter: search">
             <img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}"/>
-            <span>{{group.members[t].facebook.name}}</span>
+            <!--<span>{{group.members[t].facebook.name}}</span>-->
           </div>
           <div class="groupnr">
             <p>{{group.number}}</p>
