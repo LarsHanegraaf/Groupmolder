@@ -59,15 +59,29 @@ router.get('/:id/groups', function(req,res) {
 });
 
 router.get('/:id/groups/:number', function(req,res) {
-  if(req.user) {
-    Project.findById({ _id: req.params.id }).populate('groups.members').exec(function(err, project){
-      if(err) throw err;
+      Project.findById({ _id: req.params.id }).populate('groups.members').exec(function(err, project){
+        if(err) throw err;
 
-      res.json(project.groups[req.params.number-1]);
-    });
-  } else {
-    //TODO let the user know that is not logged in
-    console.log('user is not logged in')
+        res.json(project.groups[req.params.number-1]);
+      });
+});
+
+router.get('/:id/groups/:number/check', function(req,res) {
+  var joinedGroup = false;
+  if(req.user) {
+    for(i=0; i < req.user.groups.length; i++) {
+      if(req.user.groups[i] == req.params.id) {
+        res.json({"error": "User already joined group"});
+        joinedGroup= true;
+      }
+    }
+    if(!joinedGroup) {
+      res.json({"check": "passed"});
+    }
+    joinedGroup=false;
+  }else{
+    //let the user know that is not logged in
+    res.json({"status": "User not logged in"})
   }
 });
 

@@ -159,12 +159,34 @@ app.controller('DeleteProjectCtrl', ['$scope', '$resource', '$location', '$route
 
 app.controller('JoinGroupCtrl', ['$scope', '$resource', '$location', '$routeParams', '$http',
   function($scope, $resource, $location, $routeParams, $http) {
+    var Groups = $resource('api/projects/:id/groups/:number/check', {id: '@_id', number: '@number'}, {
+      update: { method: 'PUT'}
+    });
+
+    Groups.get({ id: $routeParams.id, number: $routeParams.number}, function(group) {
+      //check if a status error is given
+      if(group.status) {
+        $(".status").css("display", "block");
+        $(".submitButton").attr("disabled", true);
+        $(".submitButton").css("background-color", "#506B73");
+      }
+
+      if(group.error) {
+        $(".error").css("display", "block");
+        $(".submitButton").attr("disabled", true);
+        $(".submitButton").css("background-color", "#506B73");
+      }
+    });
+
+}]);
+
+app.controller('ParseGroupCtrl', ['$scope', '$resource', '$location', '$routeParams', '$http',
+  function($scope, $resource, $location, $routeParams, $http) {
     var Groups = $resource('api/projects/:id/groups/:number', {id: '@_id', number: '@number'}, {
       update: { method: 'PUT'}
     });
 
     Groups.get({ id: $routeParams.id, number: $routeParams.number}, function(group) {
-      console.log($routeParams);
       $scope.group = group;
     });
 
