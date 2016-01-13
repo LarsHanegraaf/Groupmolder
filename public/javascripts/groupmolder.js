@@ -196,6 +196,29 @@ app.controller('ParseGroupCtrl', ['$scope', '$resource', '$location', '$routePar
     }
 }]);
 
+app.filter('groupFilter', function () {
+    return function (groups, search) {
+        if(isEmpty(search)){
+          return groups;
+        }else{
+          var filteredGroups = [];
+          search = search.toLowerCase();
+          for(var group of groups){
+            for (var member of group.members){
+              if(member.facebook.name.toLowerCase().indexOf(search) > -1){
+                filteredGroups.push(group);
+              }
+            }
+          }
+          return filteredGroups;
+        }
+    }
+});
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}
+
 //jQuery animations
 $(document).ready(function() {
     var btt = $('.back-to-top');

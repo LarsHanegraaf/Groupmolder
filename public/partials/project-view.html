@@ -29,18 +29,16 @@
         <div class="col-sm-4">
           <div class="search">
           <h2>Search student</h2>
-      <input type="text" class="search-bar" placeholder="First name" style="margin-top: 35px;" ng-model='search'>
-      <input type="text" class="search-bar" placeholder="Last name">
+      <input type="text" class="search-bar" placeholder="Name" style="margin-top: 35px;" ng-model='search'>
       <input type="submit" value="Search" class="search-button">
         </div>
       </div>
       </div>
 
-      <div class="col-sm-4" ng-repeat="group in groups">
+      <div class="col-sm-4" ng-repeat="group in groups | groupFilter: search" ng-show="group.indexOf!=-1">
         <a href="/#/project/{{projectid}}/group/{{group.number}}" class="group">
-          <div class="image" ng-repeat="t in [0,1,2,3] | filter: search">
-            <img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}"/>
-            <span style="display: none">{{group.members[t].facebook.name}}</span>
+          <div class="image" ng-repeat="member in group.members">
+            <img src="//graph.facebook.com/{{member.facebook.id}}/picture?type=large" title="{{member.facebook.name}}"/>
           </div>
           <div class="groupnr">
             <p>{{group.number}}</p>
