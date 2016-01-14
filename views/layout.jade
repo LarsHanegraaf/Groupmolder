@@ -48,27 +48,29 @@ html(ng-app='GroupMolder')
               button#facebook-signin.btn.btn-primary.pull-right
                 i.fa.fa-facebook-official
                 |  Log in with Facebook
-            
+
             a#login-button(href='#/login')
               button.btn.btn-default.pull-right
-              
-                i.fa.fa-sign-in  
+
+                i.fa.fa-sign-in
                 span Log in
-              
+
           else if user.facebook.name
             a(href='/logout', target="_self")
               button.btn.btn-default.pull-right
                 i.fa.fa-log-out
                 |  Log out
+            a(href='/#/student', target="_self")
               span#name.pull-right Hello #{user.facebook.name}
-            
+
           else
             a.pull-right(href='/logout', target="_self")
               button.btn.btn-default
                 i.fa.fa-log-out
                 |  Log out
-            span#name.pull-right Hello #{user.local.firstName} #{user.local.lastName}
-            
+            a(href='/#/student', target="_self")
+              span#name.pull-right Hello #{user.local.firstName} #{user.local.lastName}
+
 
     block content
     div(ng-controller="elementCtrl", data-role="superuser")
