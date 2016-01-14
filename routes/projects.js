@@ -129,13 +129,10 @@ router.post('/:id/groups', function(req,res) {
 })*/
 
 router.put('/:id', function(req,res) {
-  var numberGroups = Math.ceil(req.body.numStudents/req.body.numStudentsPerGroup)
+
   Project.update({ _id: req.params.id },
     {$set: {name: req.body.name,
-    subjectCode: req.body.subjectCode,
-    numStudents: req.body.numStudents,
-    numStudentsPerGroup: req.body.numStudentsPerGroup,
-    numGroups: numberGroups}},
+    subjectCode: req.body.subjectCode}},
   function(err, project) {
     if(err) throw err;
 
