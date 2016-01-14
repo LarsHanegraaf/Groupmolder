@@ -215,8 +215,20 @@ app.filter('groupFilter', function () {
           search = search.toLowerCase();
           for(var group of groups){
             for (var member of group.members){
-              if(member.facebook.name.toLowerCase().indexOf(search) > -1){
-                filteredGroups.push(group);
+              if(member.facebook){
+                // if the user is coupled to facebook
+                var name = member.facebook.name;
+                if(name.toLowerCase().indexOf(search) > -1){
+                  filteredGroups.push(group);
+                  break;
+                }
+              }else{
+                // if the user has a local account
+                var name = member.local.firstName + " " + member.local.lastName;
+                if(name.toLowerCase().indexOf(search) > -1){
+                  filteredGroups.push(group);
+                  break;
+                }
               }
             }
           }
