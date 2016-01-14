@@ -13,7 +13,7 @@ var userSchema = new Schema({
     id: String,
     name: String
   },
-  groups: [{type: Schema.Types.ObjectId, ref: 'Group'}]
+  groups: [{type: Schema.Types.ObjectId, ref: 'Project'}]
 });
 
 module.exports = mongoose.model('User', userSchema);

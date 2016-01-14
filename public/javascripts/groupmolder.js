@@ -37,6 +37,7 @@ app.config(['$routeProvider', function($routeProvider){
 		    })
         .when('/student', {
           templateUrl: '/partials/student.html',
+          controller: 'StudentCtrl',
           roles: ['teacher', 'student']
         })
         .when('/login', {
@@ -194,6 +195,15 @@ app.controller('ParseGroupCtrl', ['$scope', '$resource', '$location', '$routePar
       $http.post("api/projects/" + $routeParams.id + "/groups/" + $routeParams.number);
       $location.path('/project/' + $routeParams.id);
     }
+}]);
+
+app.controller('StudentCtrl', ['$scope', '$resource',
+  function($scope, $resource) {
+    var Projects = $resource('api/users');
+    Projects.query(function(projects){
+      $scope.projects = projects;
+      console.log(projects);
+    });
 }]);
 
 app.filter('groupFilter', function () {
