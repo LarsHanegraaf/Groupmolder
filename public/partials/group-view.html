@@ -18,9 +18,25 @@
             </div>
 	          <div class="panel-body">
               <div class="group" style="margin: 5% 20% 5% 20%">
-                <div class="image" ng-repeat="t in [0,1,2,3]">
-                  <img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}"/>
+                <div class="image" ng-repeat="member in group.members">
+                  <div ng-if="member.facebook">
+                      <img src="//graph.facebook.com/{{member.facebook.id}}/picture?type=large" title="{{member.facebook.name}}"/>
+                  </div>
+                  <div ng-if="member.local">
+                    <img src="/images/user.png" title="{{member.local.firstName}} {{member.local.lastName}}">
+                  </div>
                 </div>
+                <div style="clear: both; padding-top: 20px">
+                <p>Group members:</p>
+                <ul ng-repeat="member in group.members">
+                  <li ng-if="member.facebook">
+                    {{member.facebook.name}}
+                  </li>
+                  <li ng-if="member.local">
+                    {{member.local.firstName}} {{member.local.lastName}}
+                  </li>
+                </ul>
+              </div>
                 <input class="submitButton" type="submit" value="Join group {{group.number}}" ng-click="save()">
               </div>
             </div>

@@ -38,7 +38,12 @@
       <div class="col-sm-4" ng-repeat="group in groups | groupFilter: search" ng-show="group.indexOf!=-1">
         <a href="/#/project/{{projectid}}/group/{{group.number}}" class="group">
           <div class="image" ng-repeat="member in group.members">
-            <img src="//graph.facebook.com/{{member.facebook.id}}/picture?type=large" title="{{member.facebook.name}}"/>
+            <div ng-if="member.facebook">
+                <img src="//graph.facebook.com/{{member.facebook.id}}/picture?type=large" title="{{member.facebook.name}}"/>
+            </div>
+            <div ng-if="member.local">
+              <img src="/images/user.png" title="{{member.local.firstName}} {{member.local.lastName}}">
+            </div>
           </div>
           <div class="groupnr">
             <p>{{group.number}}</p>
