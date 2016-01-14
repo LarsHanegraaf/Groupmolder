@@ -37,7 +37,6 @@ app.config(['$routeProvider', function($routeProvider){
 		    })
         .when('/student', {
           templateUrl: '/partials/student.html',
-          controller: 'StudentCtrl',
           roles: ['teacher', 'student']
         })
         .when('/login', {
