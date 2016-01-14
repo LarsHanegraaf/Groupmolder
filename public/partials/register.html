@@ -17,23 +17,23 @@
             <form action="/register" method='post'>
               <div class="input-wrapper">
                 <i class="fa fa-user"></i>
-                <input class="pull-right" type="text" placeholder="first name" name="firstName">
+                <input class="pull-right" type="text" placeholder="first name" name="firstName" required>
               </div>
               <div class="input-wrapper">
                 <i class="fa fa-user"></i>
-                <input class="pull-right" type="text" placeholder="last name" name="lastName">
+                <input class="pull-right" type="text" placeholder="last name" name="lastName" required>
               </div>
               <div class="input-wrapper">
                 <i class="fa fa-envelope"></i>
-                <input class="pull-right" type="email" placeholder="email" name="email">
+                <input class="pull-right" type="email" placeholder="email" name="email" required>
               </div>
               <div class="input-wrapper">
                 <i class="fa fa-lock"></i>
-                <input class="pull-right" type="password" placeholder="password" name="password">
+                <input class="pull-right" type="password" placeholder="password" name="password" required>
               </div>
               <div>
-                <input class="pull-right" type="radio" name="role" style="width: 12px;" value="student"><h4 style="text-align: left"><i class="fa fa-graduation-cap"></i> Student</h4>
-                <input class="pull-right" type="radio" name="role" style="width: 12px;" value="teacher"><h4 style="text-align: left"><i class="fa fa-briefcase"></i> Teacher</h4>
+                <input class="pull-right" type="radio" name="role" style="width: 12px;" value="student" required><h4 style="text-align: left"><i class="fa fa-graduation-cap"></i> Student</h4>
+                <input class="pull-right" type="radio" name="role" style="width: 12px;" value="teacher" required><h4 style="text-align: left"><i class="fa fa-briefcase"></i> Teacher</h4>
               </div>
               <input type="submit" value="Sign up">
             </form>

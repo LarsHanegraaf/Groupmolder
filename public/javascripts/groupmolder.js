@@ -202,7 +202,6 @@ app.controller('StudentCtrl', ['$scope', '$resource',
     var Projects = $resource('api/users');
     Projects.query(function(projects){
       $scope.projects = projects;
-      console.log(projects);
     });
 }]);
 
@@ -270,7 +269,7 @@ $(document).ready(function() {
 });
 
 //Hover effect
-$('#studentName').contenthover({
-    overlay_background:'#000',
-    overlay_opacity:0.8
-});
+// $('#studentName').contenthover({
+//     overlay_background:'#000',
+//     overlay_opacity:0.8
+// });

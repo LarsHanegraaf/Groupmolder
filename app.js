@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({name: 'session',
-        cookie: { maxAge: 60000 },
+        cookie: { maxAge: 60*60000 }, // in milliseconds, 60 minutes
         secret: fbConfig.sessionSecret,
         resave: true,
         saveUninitialized: true
