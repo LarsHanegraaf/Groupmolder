@@ -212,20 +212,20 @@ app.filter('groupFilter', function () {
         }else{
           var filteredGroups = [];
           search = search.toLowerCase();
-          for(var group of groups){
-            for (var member of group.members){
-              if(member.facebook){
+          for(var i = 0; i<groups.length; i++){
+            for (var j = 0; j<groups[i].members.length; j++){
+              if(groups[i].members[j].facebook){
                 // if the user is coupled to facebook
-                var name = member.facebook.name;
+                var name = groups[i].members[j].facebook.name;
                 if(name.toLowerCase().indexOf(search) > -1){
-                  filteredGroups.push(group);
+                  filteredGroups.push(groups[i]);
                   break;
                 }
               }else{
                 // if the user has a local account
-                var name = member.local.firstName + " " + member.local.lastName;
+                var name = groups[i].members[j].local.firstName + " " + groups[i].members[j].local.lastName;
                 if(name.toLowerCase().indexOf(search) > -1){
-                  filteredGroups.push(group);
+                  filteredGroups.push(groups[i]);
                   break;
                 }
               }
