@@ -963,4 +963,21 @@ Student page
   font-size: 1.5em;
   width: 100%;
 }
+
+#createBtn { /* submit fields */
+  color: white;
+  background-color: #F25C05;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+#createBtn:hover{
+  background-color: #c74813;
+}
+
+#createBtn:disabled{
+  background-color: #6d7d83;
 }

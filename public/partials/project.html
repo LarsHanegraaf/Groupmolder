@@ -68,26 +68,27 @@
               <h2>Create groupmolder</h2>
             </div>
             <div class="panel-body">
-              <form>
+              <form name="createProjectForm" class="ng-pristine ng-valid" required>
                 <div class="input-wrapper">
                   <i class="fa fa-info"></i>
-                  <input type="text" class="pull-right" placeholder="Course (e.g. Web Technology)" ng-model="project.name"></input>
+                  <input type="text" class="pull-right" name="projectTitle" placeholder="Course (e.g. Web Technology)" ng-model="project.name" required></input>
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-list-alt"></i>
-                  <input type="text" class="pull-right" placeholder="Subject Code (e.g. 2ID60)" ng-model="project.subjectCode"></input>
+                  <input type="text" class="pull-right" placeholder="Subject Code (e.g. 2ID60)" ng-model="project.subjectCode" required></input>
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-group"></i>
-                  <input type="number" class="pull-right" placeholder="Number of students" ng-model="project.numStudents"></input>
+                  <input type="number" ng-min="2" ng-max="500" class="pull-right" placeholder="Number of students (2-500)" ng-model="project.numStudents" required></input>
                 </div>
                 <div class="input-wrapper">
                   <i class="fa fa-th-large"></i>
-                  <input type="number" class="pull-right" placeholder="Number of students per group" ng-model="project.numStudentsPerGroup"></input>
+                  <input type="number" ng-min="2" ng-max="500" class="pull-right" placeholder="Group size (2-250)" ng-model="project.numStudentsPerGroup" required></input>
                 </div>
+                <button id="createBtn" type="submit" ng-disabled="createProjectForm.$invalid" ng-click="save()">Create</button>
+              </form
 
-                <input type="submit" value="Create" ng-click="save()">
-              </form>
+
               <p>To let students join this Groupmolder, click on 'View' of the corresponding groupmolder and copy the URL in the addressbar and spread it under the students (e.g. by mail).</p>
               <p>When they open this link, they're are directed to the group page an are able to join a group.</p>
             </div>
