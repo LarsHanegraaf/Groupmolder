@@ -54,7 +54,7 @@ module.exports = function(passport){
           done(err, user);
         }else{
           var newuser = new User({
-            role: 'teacher',
+            role: 'student',
             facebook:{
               id: profile.id,
               name: profile.displayName
