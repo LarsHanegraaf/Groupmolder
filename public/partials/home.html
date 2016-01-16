@@ -4,7 +4,7 @@
     <div class="container">
       <div class="bottom">
         <h1>Excellent teamwork</h1>
-        <h2>Forming groups has never been easier</h2><a>Sign up as Student</a><a>Sign up as Teacher</a><a href="/#/project">Project Page (for now #convenience)</a>
+        <h2>Forming groups has never been easier</h2><a href="/#/register">Sign up as Student</a><a href="/#/register">Sign up as Teacher</a>
       </div>
     </div>
   </div>
@@ -69,67 +69,75 @@
     <div class="row">
       <div class="col-sm-7">
   			<div class="embed-responsive embed-responsive-16by9">
-  				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+  				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6xf_qWtPhrg"></iframe>
   			</div>
   		</div>
       <div class="col-sm-5">
-        <h2>Demo </h2>
-        <p>Follow the following steps:</p>
+        <h3>Get Started</h3>
+        <p>As a <strong>student</strong>, follow these steps:</p>
         <ol>
-          <li>Lorum ipsulum</li>
-          <li>Lorum ipsulum</li>
-          <li>Lorum ipsulum</li>
-          <li>Lorum ipsulum</li>
-          <li>Lorum ipsulum</li>
+          <li>Sign up as a student or log in with Facebook</li>
+          <li>Get a unique link from your teacher</li>
+          <li>Choose your desired group members</li>
+        </ol>
+        <p>As a <strong>teacher</strong>, follow these steps:</p>
+        <ol>
+          <li>Sign up as a teacher, Facebook not available</li>
+          <li>Go to your <a href="/#/project"> project</a> page</li>
+          <li>Create a GroupMolder</li>
+          <li>Share the link with your students</li>
         </ol>
       </div>
     </div>
   </div>
+
+  <!-- API Guide -->
   <div class="story">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h1>API documentation</h1>
-        <p>Since we used MongoDB, all the accepted and returned information is in JSON.</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>API documentation</h2>
+          <p>Since we used MongoDB, all the accepted and returned information is in JSON.</p>
 
-        <p>The API is located under URL/api . All the given following links are relative to this URL.</p>
+          <p>The API is located under URL/api . All the given following links are relative to this URL.</p>
 
-        <h2>Projects:</h2>
-        <p>To get all the projects use a GET request on /projects/ .
-        The response contains an array with all the projects and corresponding information and groups with its members’ ID in it.</p>
+          <h3>Projects</h3>
+          <p>To get all the projects use a GET request on /projects/ .
+          The response contains an array with all the projects and corresponding information and groups with its members’ ID in it.</p>
 
-        <p>To get a specific project, use a GET request on /projects/”_id” .
-        The “_id” part, is the “_id” attribute of the project in the database. When using the first request, the first attribute of an object given is the “_id”.
-        The response is object which contains the project info and the groups with the members’ ID.</p>
+          <p>To get a specific project, use a GET request on /projects/”_id” .
+          The “_id” part, is the “_id” attribute of the project in the database. When using the first request, the first attribute of an object given is the “_id”.
+          The response is object which contains the project info and the groups with the members’ ID.</p>
 
-        <p>To create a project, use a POST method on /projects.
-        The body must contain a “name”, “subjectCode”, “numStudents” and “numStudentsPerGroup”. The number of groups is automatically calculated and the number of needed groups is also created immediately.</p>
+          <p>To create a project, use a POST method on /projects.
+          The body must contain a “name”, “subjectCode”, “numStudents” and “numStudentsPerGroup”. The number of groups is automatically calculated and the number of needed groups is also created immediately.</p>
 
-        <p>To update a project, use a PUT method on /projects/”_id” .
-        The body must contain a “name” and “subjectCode”. The response is the updated project.</p>
+          <p>To update a project, use a PUT method on /projects/”_id” .
+          The body must contain a “name” and “subjectCode”. The response is the updated project.</p>
 
-        <p>To delete a project, use a DELETE method on /projects/”_id” .
-        The response when completed is: {"result": "succes!"}.</p>
+          <p>To delete a project, use a DELETE method on /projects/”_id” .
+          The response when completed is: {"result": "succes!"}.</p>
 
-        <h2>Groups:</h2>
-        <p>To retrieve information about a group, use a GET method on /projects/”_id”/groups . The response is an array with all the groups of that project and all the member information.</p>
+          <h3>Groups</h3>
+          <p>To retrieve information about a group, use a GET method on /projects/”_id”/groups . The response is an array with all the groups of that project and all the member information.</p>
 
-        <p>To retrieve information about a specific group, use a GET method on /projects/”_id”/groups/”number” . The response is an object with the groupnumber and all the information about its members.</p>
+          <p>To retrieve information about a specific group, use a GET method on /projects/”_id”/groups/”number” . The response is an object with the groupnumber and all the information about its members.</p>
 
-        <strong>For the following 2 endpoints you have to be authenticated via the website (via Log in of Facebook login):</strong>
+          <strong>For the following 2 endpoints you have to be authenticated via the website (via Log in of Facebook login):</strong>
 
-        <p>To check whether an user is allowed to join a group, use a GET method on /projects/”_id”/groups/”number”/check . The result is either {"error": "User already joined group"} or {"check": "passed"} or {"status": "User not logged in"}.</p>
+          <p>To check whether an user is allowed to join a group, use a GET method on /projects/”_id”/groups/”number”/check . The result is either {"error": "User already joined group"} or {"check": "passed"} or {"status": "User not logged in"}.</p>
 
-        <p>To join a group, use a POST method on /projects/”_id”/groups/”number” . You don’t have to provide a body, since you’re information is parsed from the user/_id header of your request. The response contains the specific information for that group.</p>
+          <p>To join a group, use a POST method on /projects/”_id”/groups/”number” . You don’t have to provide a body, since you’re information is parsed from the user/_id header of your request. The response contains the specific information for that group.</p>
 
-        <h2>User:</h2>
+          <h3>User</h3>
 
-        <p>The only method provided for a user is to get information about which groups the user joined. You also have to be authenticated by our website to do this query!</p>
+          <p>The only method provided for a user is to get information about which groups the user joined. You also have to be authenticated by our website to do this query!</p>
 
-        <p>To get information about the projects that you joined, use a GET method on /users . The response is an array with all the information of a project that your joined.</p>
+          <p>To get information about the projects that you joined, use a GET method on /users . The response is an array with all the information of a project that your joined.</p>
 
+        </div>
       </div>
     </div>
   </div>
-</div>
+
 </div>

@@ -10,6 +10,10 @@ a {
   color: #fff;
 }
 
+.demo a {
+  color: #f25c05;
+}
+
 /* Footer */
 .footer{
   background: url('/images/footer.png');
@@ -490,6 +494,10 @@ Project page
   margin-bottom: -60px;
   padding-bottom: 60px;
   margin-top: 80px;
+}
+
+.project .inline * {
+  font-size: 12px;
 }
 
 .project .table{
