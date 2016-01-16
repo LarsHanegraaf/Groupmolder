@@ -14,6 +14,7 @@ a {
   color: #f25c05;
 }
 
+
 /* Footer */
 .footer{
   background: url('/images/footer.png');
@@ -91,11 +92,11 @@ a {
 
 .navbar  #name{
   display: inline-block;
-  margin-right: 50px;
-  font-size: 1.4em;
+  margin-right: 30px;
+  font-size: 1.2em;
   position: relative;
-  top: 12px;
-  color: black;
+  top: 16px;
+  color: #f25c05;
 }
 @media(max-width: 768px){
   .navbar  #name{

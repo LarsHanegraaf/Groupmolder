@@ -61,15 +61,23 @@ html(ng-app='GroupMolder')
                 i.fa.fa-log-out
                 |  Log out
             a(href='/#/student', target="_self")
-              span#name.pull-right Hello #{user.facebook.name}
+              span#name.pull-right Hello student #{user.facebook.name}
 
           else
             a.pull-right(href='/logout', target="_self")
               button.btn.btn-default
                 i.fa.fa-log-out
                 |  Log out
-            a(href='/#/student', target="_self")
-              span#name.pull-right Hello #{user.local.firstName} #{user.local.lastName}
+            if user.role == 'teacher'
+              a(href='/#/project', target="_self")
+                span#name.pull-right Hello teacher #{user.local.firstName} #{user.local.lastName}
+            else if user.role == 'student'
+              a(href='/#/student', target="_self")
+                span#name.pull-right Hello student #{user.local.firstName} #{user.local.lastName}
+            else
+              a(href='/#/', target="_self")
+                span#name.pull-right Hello superuser #{user.local.firstName} #{user.local.lastName}
+
 
 
     block content
