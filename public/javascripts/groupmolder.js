@@ -31,6 +31,10 @@ app.config(['$routeProvider', function($routeProvider){
             controller: 'JoinGroupCtrl',
             roles: ['teacher', 'student']
         })
+        .when('/project/random/:id', {
+          templateUrl: '/partials/project-random.html',
+          controller: 'AssignRandomCtrl'
+        })
         .when('/register', {
           templateUrl: '/partials/register.html',
           roles: ['anon']
@@ -195,6 +199,22 @@ app.controller('ParseGroupCtrl', ['$scope', '$resource', '$location', '$routePar
       $http.post("api/projects/" + $routeParams.id + "/groups/" + $routeParams.number);
       $location.path('/project/' + $routeParams.id);
     }
+}]);
+
+app.controller('RandomGroupCtrl', ['$scope', '$resource', '$location', '$routeParams', '$route', '$http',
+  function($scope, $resource, $location, $routeParams, $route, $http) {
+    $scope.random = function() {
+      $http.post("api/projects/" + $routeParams.id + "/random");
+      $route.reload();
+    };
+}]);
+
+app.controller('AssignRandomCtrl', ['$scope', '$resource', '$location', '$routeParams', '$http',
+  function($scope, $resource, $location, $routeParams, $http) {
+    $scope.random = function() {
+      $http.post("api/projects/" + $routeParams.id + "/assignrandom");
+      $location.path('/project');
+    };
 }]);
 
 app.controller('StudentCtrl', ['$scope', '$resource',

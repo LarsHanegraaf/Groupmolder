@@ -95,19 +95,24 @@ router.post('/:id/groups/:number', function(req,res) {
       }
     }
     if(joinedGroup){
-      //TODO let the user know that he already joined a group
+      // let the user know that he already joined a group
       console.log("User already joined a group");
       joinedGroup = false;
     } else {
       Project.findById({ _id: req.params.id }, function(err, project) {
         if(err) throw err;
-
+        //Make sure there are no more students in a group than allowed
+        if(project.numStudentsPerGroup > project.groups[req.params.number-1].members.length) {
         project.groups[req.params.number-1].members.push({_id: req.user._id});
         project.save(function(err){
           if (err) throw err;
         });
-
         res.json(project.groups[req.params.number-1]);
+      } else {
+        res.json({"warning": "Group full"})
+      }
+
+
       });
       User.findById({_id: req.user._id}, function(err, user) {
         if(err) throw err;
@@ -123,10 +128,74 @@ router.post('/:id/groups/:number', function(req,res) {
     console.log('user not logged in')
   }
 });
-/*
-router.post('/:id/groups', function(req,res) {
-  req.user._id
-})*/
+
+router.post('/:id/random', function(req,res) {
+  var joinedGroup = false;
+  if(req.user) {
+//make sure user doesn't join a project in which he/she already joined
+    for(i=0; i < req.user.groups.length; i++) {
+      if(req.user.groups[i] == req.params.id) {
+        joinedGroup = true;
+      }
+    }
+    if(joinedGroup){
+      //TODO let the user know that he already joined a group
+      console.log("User already joined a group");
+      joinedGroup = false;
+    } else {
+      Project.findById({ _id: req.params.id }, function(err, project) {
+        if(err) throw err;
+
+        project.randomPool.push({_id: req.user._id});
+        project.save(function(err){
+          if (err) throw err;
+        });
+
+        res.json(project);
+      });
+      User.findById({_id: req.user._id}, function(err, user) {
+        if(err) throw err;
+        console.log(user);
+        user.groups.push({_id: req.params.id});
+        user.save(function(err){
+          if(err) throw err;
+        });
+      });
+    }
+  } else {
+    //TODO let the user know that he is not logged in
+    console.log('user not logged in')
+  }
+});
+
+router.post('/:id/assignrandom', function(req,res) {
+  var groupFilled = false;
+  if(req.user.role == "teacher") {
+
+    Project.findById({ _id: req.params.id }, function(err, project) {
+      if(err) throw err;
+      for(j=0; j < project.groups.length ; j++) {
+        while(!groupFilled) {
+        for(i = 0; i < project.randomPool.length; i++) {
+          if(project.numStudentsPerGroup > project.groups[j].members.length) {
+          project.groups[j].members.push({_id: project.randomPool[i]});
+        }
+        groupFilled = true;
+
+      }
+    }
+  }
+      project.randomPool = [];
+      project.save(function(err){
+        if (err) throw err;
+      });
+    });
+      res.json({"succcess": true});
+  } else {
+    res.json({"error": "Not authorized"});
+  }
+});
+
 
 router.put('/:id', function(req,res) {
 

@@ -10,7 +10,8 @@ var projectSchema = new Schema({
   numGroups: Number,
   deadlineSubscription: Date,
   groups: [GroupSchema],
-  admin: [{type: Schema.Types.ObjectId, ref: 'User'}]
+  admin: [{type: Schema.Types.ObjectId, ref: 'User'}],
+  randomPool: [{type: Schema.Types.ObjectId, ref: 'User'}]
 });
 
 module.exports = mongoose.model('Project', projectSchema);
