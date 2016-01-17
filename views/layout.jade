@@ -42,43 +42,49 @@ html(ng-app='GroupMolder')
             span.icon-bar
           a.navbar-brand(href='#/')
             img#img-menu(src='/images/logo.png')
+
         .collapse.navbar-collapse.navHeaderCollapse
-          if user.role == 'anon'
-            a(href='/auth/facebook', target="_self")
-              button#facebook-signin.btn.btn-primary.pull-right
-                i.fa.fa-facebook-official
-                |  Log in with Facebook
+          div.pull-right
+            if user.role == 'anon'
 
-            a#login-button(href='#/login')
-              button.btn.btn-default.pull-right
+              // Not logged in
+              a#login-button(href='#/login')
+                button.btn.btn-default
+                  i.fa.fa-sign-in
+                  span Log in
+              a(href='/auth/facebook', target="_self")
+                button#facebook-signin.btn.btn-primary
+                  i.fa.fa-facebook-official
+                  |  Log in with Facebook
 
-                i.fa.fa-sign-in
-                span Log in
+            else if user.facebook.name
 
-          else if user.facebook.name
-            a(href='/logout', target="_self")
-              button.btn.btn-default.pull-right
-                i.fa.fa-log-out
-                |  Log out
-            a(href='/#/student', target="_self")
-              span#name.pull-right Hello student #{user.facebook.name}
-
-          else
-            a.pull-right(href='/logout', target="_self")
-              button.btn.btn-default
-                i.fa.fa-log-out
-                |  Log out
-            if user.role == 'teacher'
-              a(href='/#/project', target="_self")
-                span#name.pull-right Hello teacher #{user.local.firstName} #{user.local.lastName}
-            else if user.role == 'student'
+              // Logged in with Facebook
               a(href='/#/student', target="_self")
-                span#name.pull-right Hello student #{user.local.firstName} #{user.local.lastName}
+                button.btn.btn-default#name Student: #{user.facebook.name}
+              a(href='/logout', target="_self")
+                button.btn.btn-default
+                  i.fa.fa-sign-out
+                  |  Log out
+
             else
-              a(href='/#/', target="_self")
-                span#name.pull-right Hello superuser #{user.local.firstName} #{user.local.lastName}
 
+              // Logged in with local account
 
+              if user.role == 'teacher'
+                a(href='/#/project', target="_self")
+                  button.btn.btn-default#name Teacher: #{user.local.firstName} #{user.local.lastName}
+              else if user.role == 'student'
+                a(href='/#/student', target="_self")
+                  button.btn.btn-default#name Student: #{user.local.firstName} #{user.local.lastName}
+              else
+                a(href='/#/', target="_self")
+                  button.btn.btn-default#name Superuser: #{user.local.firstName} #{user.local.lastName}
+
+              a(href='/logout', target="_self")
+                button.btn.btn-default
+                  i.fa.fa-sign-out
+                  |  Log out
 
     block content
     div(ng-controller="elementCtrl", data-role=user.role)

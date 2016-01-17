@@ -77,12 +77,17 @@ a {
 
 .navbar  #name{
   display: inline-block;
-  margin-right: 30px;
-  font-size: 1.2em;
-  position: relative;
-  top: 16px;
-  color: #f25c05;
+  margin-right: 10px;
+  color: white;
+  background-color: #f25c05;
 }
+
+.navbar  #name:hover{
+  color: white;
+  background-color: #d04f05;
+  border-color: #c8c8c8;
+}
+
 
 @media (max-width:494px) {
   #img-menu {
@@ -92,6 +97,27 @@ a {
     margin-bottom: 125px;
   }
 }
+
+
+@media (max-width:767px) {
+  .navbar .pull-right {
+    width: 100%;
+  }
+  .navbar .btn {
+    margin: 0px;
+    width: 100%;
+  }
+  #facebook-signin {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+  .navbar #name {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}
+
+
 
 /* Forms */
 
