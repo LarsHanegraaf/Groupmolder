@@ -843,11 +843,16 @@ Student page
 .groupnr{
   position: relative;
   margin-left: 85%;
-  margin-top: 85%;
+  margin-top: 100%;
   color: white;
   font-size: auto;
   font-weight: 500;
   text-shadow: 2px 2px black;
+}
+
+.groupnr p{
+  position: absolute;
+  top: -30px;
 }
 
 @media (min-width:768px) {
