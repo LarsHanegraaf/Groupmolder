@@ -1,55 +1,29 @@
 <div class="project">
-<div class="container">
-<div class="row">
-<div class="col-sm-3"></div>
-<div class="col-sm-6">
-    <div class="panel-body">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2>Edit Groupmolder</h2>
-          </div>
-		  <div class="panel-body">
-          	<div class="input-wrapper">
-            	<i class="fa fa-info"></i><input class="pull-right" type="text" ng-model="project.name" placeholder="Course"></input>
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div class="panel-body">
+          <div class="panel panel-default">
+            
+            <div class="panel-heading">
+              <h2>Edit Groupmolder</h2>
             </div>
-            <div class="input-wrapper">
-            	<i class="fa fa-list-alt"></i><input class="pull-right" type="text" ng-model="project.subjectCode"></input>
+
+            <div class="panel-body form">
+              <div class="wrapper">
+                <i class="fa fa-info"></i><input type="text" ng-model="project.name" placeholder="Course"></input>
+              </div>
+              <div class="wrapper">
+                <i class="fa fa-list-alt"></i><input type="text" ng-model="project.subjectCode"></input>
+              </div>
+              <input type="submit" value="Save" ng-click="save()">
             </div>
-              <input class="pull-right" type="submit" value="Save" ng-click="save()">
+
           </div>
         </div>
+      </div>
+    <div class="col-sm-3"></div>
     </div>
+  </div>
 </div>
-<div class="col-sm-3"></div>
-</div>
-</div>
-</div>
-
-<!--
-<h1>Edit a Project</h1>
-
-<form>
-    <div class="form-group">
-        <label>Name</label>
-        <input class="pull-right" class="form-control" ng-model="project.name"></input>
-    </div>
-    <div class="form-group">
-        <label>Subject Code</label>
-        <input class="pull-right" class="form-control" ng-model="project.subjectCode"></input>
-    </div>
-    <div class="form-group">
-        <label>Number of applying students</label>
-        <input class="pull-right" class="form-control" ng-model="project.numStudents"></input>
-    </div>
-    <div class="form-group">
-        <label>Maximum amount of students per group</label>
-        <input class="pull-right" class="form-control" ng-model="project.numStudentsPerGroup"></input>
-    </div>
-    //numGroups has to be calculated automatically in future
-    <div class="form-group">
-        <label>Number of groups</label>
-        <input class="pull-right" class="form-control" ng-model="project.numGroups"></input>
-    </div>
-    <input class="pull-right" type="button" class="btn btn-primary" value="Save" ng-click="save()"></input>
-</form>
--->

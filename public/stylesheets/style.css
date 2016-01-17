@@ -1,4 +1,4 @@
-html, body{
+html, body {
   height: 100%;
 }
 body {
@@ -14,9 +14,8 @@ a {
   color: #f25c05;
 }
 
-
 /* Footer */
-.footer{
+.footer {
   background: url('/images/footer.png');
   -webkit-background-size: cover;
   background-color: #586b73;
@@ -26,27 +25,13 @@ a {
   color: white;
 }
 
-/* Page transition */
-.zoom-in {
-  min-height: 100%;
-  margin-bottom: -60px;
-}
-
-.zoom-in:after{
-  content: "";
-  display: block;
-  height: 60px;
-}
-
 /* Navbar */
-#menu{
+#menu {
   padding: 15px 0;
   background-color: rgba(255,255,255,0.6);
 }
 
-#menu .btn,
-#register-menu .btn,
-#project-menu .btn {
+#menu .btn {
   margin-top: 10px;
 }
 
@@ -98,11 +83,6 @@ a {
   top: 16px;
   color: #f25c05;
 }
-@media(max-width: 768px){
-  .navbar  #name{
-    display: none;
-  }
-}
 
 @media (max-width:494px) {
   #img-menu {
@@ -113,34 +93,69 @@ a {
   }
 }
 
-@media (max-width:342px) {
-  #menu .btn,
-  #register-menu .btn,
-  #project-menu .btn {
-    width: 100%;
-  }
+/* Forms */
+
+.wrapper {
+  background-color: white;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
-#register-menu{
-	padding: 15px;
-	background-color: #f2f2f2;
+.wrapper > i {
+  width: 10%;
+  color: #586B72;
+  float: left;
+  text-align: center;
+  font-size: 1.5em;
+  min-height: 100%;
+  margin-top: 10px;
 }
 
-#project-menu{
-	padding: 15px;
-	background-color: #f2f2f2;
+.wrapper > i:hover { /* hover over icons */
+  color: #435055;
 }
+
+.form input{
+  width: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.2em;
+  border: none;
+  color: #435055;
+  border-radius: 5px;
+}
+
+.form input[type="submit"]{ /* submit fields */
+  color: white;
+  background-color: #F25C05;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.form input[type="submit"]:hover{
+  background-color: #c74813;
+}
+
+.form .facebook-button {
+  color: white;
+  background-color: #F25C05;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  width: 100%;
+}
+
 
 /*
 =======================================
 index page
 =======================================
 */
-
-.home{
-  /*position: absolute;
-  min-height: 100%;*/
-}
 
 /*Jumbotron */
 
@@ -258,7 +273,6 @@ index page
     color: white;
 }
 
-
 /*
 =========================================================
 Register page
@@ -273,7 +287,7 @@ Register page
     margin-top: 80px;
 }
 
-.vcenter {
+.register .vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
@@ -287,7 +301,7 @@ Register page
 }
 
 @media screen and (max-width: 768px){
-  .vcenter{
+  .register .vcenter{
     display: block;
     width: 100%;
   }
@@ -703,7 +717,7 @@ Student page
 }
 
 @media(max-width: 1000px){
-  .student h2{
+.student h2{
   font-size: 20px;
   font-weight: 600;
   }
@@ -745,7 +759,7 @@ Student page
   margin-bottom: 30px;
 }
 
-.image img{
+.student .image img{
   position: relative;
   display: inline;
   width: 100%;
@@ -753,7 +767,7 @@ Student page
   float: left;
 }
 
-.image div{
+.student .image div{
   position: relative;
   display: inline;
   width: 50%;
@@ -761,7 +775,7 @@ Student page
   float: left;
 }
 
-.groupnr{
+.student .groupnr{
   position: relative;
   margin-left: 85%;
   margin-top: 100%;
@@ -771,13 +785,13 @@ Student page
   text-shadow: 2px 2px black;
 }
 
-.groupnr p{
+.student .groupnr p{
   position: absolute;
   top: -30px;
 }
 
 @media (min-width:768px) {
-  .equal, .equal > div[class*='col-'] {
+  .student .equal, .equal > div[class*='col-'] {
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
@@ -786,7 +800,7 @@ Student page
 }
 
 @media (max-width:462px) {
-  .register .panel {
+  .student .register .panel {
     margin-left: 0px;
     margin-right: 0px;
     width: auto;
@@ -823,7 +837,6 @@ Student page
     margin-right: auto;
   }
 }
-
 
 .student .panel h2{
   color: #F25C05;
@@ -883,62 +896,4 @@ Student page
   .student .col-sm-12 {
     padding: 0px;
   }
-}
-
-
-/* NEW FORMS */
-
-.wrapper {
-  background-color: white;
-  width: 100%;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.wrapper > i {
-  width: 10%;
-  color: #586B72;
-  float: left;
-  text-align: center;
-  font-size: 1.5em;
-  min-height: 100%;
-  margin-top: 10px;
-}
-
-.wrapper > i:hover { /* hover over icons */
-  color: #435055;
-}
-
-.form input{
-  width: 90%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 1.2em;
-  border: none;
-  color: #435055;
-  border-radius: 5px;
-}
-
-.form input[type="submit"]{ /* submit fields */
-  color: white;
-  background-color: #F25C05;
-  border: none;
-  border-radius: 5px;
-  margin: 10px 0;
-  font-size: 1.5em;
-  width: 100%;
-}
-
-.form input[type="submit"]:hover{
-  background-color: #c74813;
-}
-
-.form .facebook-button {
-  color: white;
-  background-color: #F25C05;
-  border: none;
-  border-radius: 5px;
-  margin: 10px 0;
-  font-size: 1.5em;
-  width: 100%;
 }

@@ -38,28 +38,6 @@
           </div>
       </div>
 
-      <!-- Pop up when remove button is clicked, TODO Behavior when clicking changed does have to be changed -->
-      <div class = "modal fade remove" id="remove" role="dialog"> <!--ng-controller="DeleteProjectCtrl"-->
-          <div class = "modal-dialog">
-              <div class = "modal-content" style="background-color: #435055">
-                  <div class = "modal-header">
-                      <button class="close" data-dismiss="modal">
-                          <span style="color: #F25C05">&times;</span>
-                      </button>
-
-                      <h4 class="modal-title" style="color: white">
-                          Are you sure you want to permanently remove this GroupMolder?
-                      </h4>
-                  </div>
-
-                  <div class="modal-footer">
-                      <a ng-click="delete()" data-dismiss="modal" class="btn btn-default" style="background-color: #F25C05; color: white">Yes</a>
-                      <a class="btn btn-default" data-dismiss="modal">No</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-
       <!-- Create GroupMolder -->
       <div class="col-sm-4" ng-controller="AddProjectCtrl">
         <div class="panel-body">

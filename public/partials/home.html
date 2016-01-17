@@ -98,43 +98,32 @@
         <div class="col-sm-12">
           <h2>API documentation</h2>
           <p>Since we used MongoDB, all the accepted and returned information is in JSON.</p>
-
           <p>The API is located under URL/api . All the given following links are relative to this URL.</p>
 
           <h3>Projects</h3>
           <p>To get all the projects use a GET request on /projects/ .
           The response contains an array with all the projects and corresponding information and groups with its members’ ID in it.</p>
-
           <p>To get a specific project, use a GET request on /projects/”_id” .
           The “_id” part, is the “_id” attribute of the project in the database. When using the first request, the first attribute of an object given is the “_id”.
           The response is object which contains the project info and the groups with the members’ ID.</p>
-
           <p>To create a project, use a POST method on /projects.
           The body must contain a “name”, “subjectCode”, “numStudents” and “numStudentsPerGroup”. The number of groups is automatically calculated and the number of needed groups is also created immediately.</p>
-
           <p>To update a project, use a PUT method on /projects/”_id” .
           The body must contain a “name” and “subjectCode”. The response is the updated project.</p>
-
           <p>To delete a project, use a DELETE method on /projects/”_id” .
           The response when completed is: {"result": "succes!"}.</p>
 
           <h3>Groups</h3>
           <p>To retrieve information about a group, use a GET method on /projects/”_id”/groups . The response is an array with all the groups of that project and all the member information.</p>
-
           <p>To retrieve information about a specific group, use a GET method on /projects/”_id”/groups/”number” . The response is an object with the groupnumber and all the information about its members.</p>
 
           <strong>For the following 2 endpoints you have to be authenticated via the website (via Log in of Facebook login):</strong>
-
           <p>To check whether an user is allowed to join a group, use a GET method on /projects/”_id”/groups/”number”/check . The result is either {"error": "User already joined group"} or {"check": "passed"} or {"status": "User not logged in"}.</p>
-
           <p>To join a group, use a POST method on /projects/”_id”/groups/”number” . You don’t have to provide a body, since you’re information is parsed from the user/_id header of your request. The response contains the specific information for that group.</p>
 
           <h3>User</h3>
-
           <p>The only method provided for a user is to get information about which groups the user joined. You also have to be authenticated by our website to do this query!</p>
-
           <p>To get information about the projects that you joined, use a GET method on /users . The response is an array with all the information of a project that your joined.</p>
-
         </div>
       </div>
     </div>

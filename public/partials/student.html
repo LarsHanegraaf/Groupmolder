@@ -2,69 +2,33 @@
 <div class = "student">
 	<div class="container">
 
-		<!-- Search bar -->
-		<!--<input type="text" ng-model="search" class="search-bar" placeholder="&#xF002; Search for student">-->
-
-		<!--<div class="row equal">
-			<div class="col-xs-4">
-				<div class="information">
-                    <h2>Information</h2>
-                    <h4 class="h4-regular">Course:</h4>
-                    <h4 class="h4-bold">Web Technology</h4>
-                    <h4 class="h4-regular">Subject Code:</h4>
-                    <h4 class="h4-bold">2ID60</h4>
-                    <h4 class="h4-regular">Deadline subscription</h4>
-                    <h4 class="h4-bold" id="information">19-01-2016</h4>
-                </div>
-            </div>
-
-            <div class="col-xs-4">
-				<div class="random">
-                    <p id="question-mark">?</p>
-                    <h4>Random assignment</h4>
-                </div>
-            </div>
-
-            <div class="col-xs-4">
-		      <div class="group">
-                <div class="image">
-                   	<img src="images/profile.jpg"/>  Profile picture 1
-                    <img src="images/add.png"/>Profile picture 2
-                    <img src="images/add.png"/>
-                    <img src="images/user.png"/> Profile picture 2
-                </div>
-                <div class="groupnr">
-                  <p>1</p>
-                </div>
-              </div>
-          </div>
-  </div> -->
-	<div class="col-sm-12">
+		<div class="col-sm-12">
 			<div class="panel-body">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h2>My groupmolders</h2>
-						</div>
-						<div>
-							<table class="table" align="center">
-								<thead>
-									<tr>
-										<th>Course</th>
-										<th>Subject Code</th>
-										<th>Action</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr ng-repeat='project in projects'>
-										<td id="alignv">{{project.name}}</td>
-										<td id="alignv">{{project.subjectCode}}</td>
-										<td id="alignv" class="pull-left"><a href="/#/project/{{project._id}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i><span title="View Groupmolder">View</span></a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2>My groupmolders</h2>
 					</div>
+					<div>
+						<table class="table" align="center">
+							<thead>
+								<tr>
+									<th>Course</th>
+									<th>Subject Code</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat='project in projects'>
+									<td id="alignv">{{project.name}}</td>
+									<td id="alignv">{{project.subjectCode}}</td>
+									<td id="alignv" class="pull-left"><a href="/#/project/{{project._id}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i><span title="View Groupmolder">View</span></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
+		</div>
+
 	</div>
-</div>
 </div>

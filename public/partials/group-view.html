@@ -3,14 +3,19 @@
     <div class="row">
       <div class="col-sm-2"></div>
       <div class="col-sm-8">
+
+        <!-- Warning: log in first -->
         <div class="alert alert-danger status" style="display: none">
           <a class="close fade in" data-dismiss="alert" aria-label="close">&times;</a>
           <strong>Warning!</strong> To join a group, you have to be logged in. Please <a href="/#/login" style="color: #F25C05">Log in</a> or <a href="/auth/facebook" style="color: #F25C05">Log in with Facebook</a>.
         </div>
+
+        <!-- Warning: already joined a group -->
         <div class="alert alert-warning error" style="display: none">
           <a class="close fade in" data-dismiss="alert" aria-label="close">&times;</a>
           <strong>Warning!</strong> You already joined a group, you're allowed to join a group only once in a project.
         </div>
+
         <div class="panel-body">
           <div class="panel panel-default" ng-controller="ParseGroupCtrl">
             <div class="panel-heading">
@@ -42,20 +47,9 @@
             </div>
           </div>
         </div>
+        
         <div class="col-sm-2"></div>
       </div>
     </div>
   </div>
 </div>
-
-    <!--
-        <p>Make sure you're logged in via Facebook, otherwise Node will crash!</p>
-
-        <ul>
-            <li>Group: {{group.number}}</li>
-            <li>Members: <div ng-repeat="t in [0,1,2,3]">{{group.members[t].facebook.name}}</li>
-        </ul>
-        <input type="submit" value="Join Group" ng-click="save()">
-        <a class="btn btn-default" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
-          </div>
--->

@@ -2,41 +2,43 @@
   <div class="view-project">
     <div class="container">
 
-      <!-- Search bar
-      <input type="text" ng-model="search" class="search-bar" placeholder="&#xF002; Search for student">-->
-    <div class="row equal">
-      <div class="col-sm-4">
-        <div class="information">
-          <h2>Information</h2>
-          <h4 class="h4-regular">Course:</h4>
-          <h4 class="h4-bold">{{projects.name}}</h4>
-          <h4 class="h4-regular">Subject Code:</h4>
-          <h4 class="h4-bold">{{projects.subjectCode}}</h4>
-          <h4 class="h4-regular">Number of groups:</h4>
-          <h4 class="h4-bold">{{projects.numGroups}}</h4>
-          <h4 class="h4-regular">Number of students:</h4>
-          <h4 class="h4-bold" id="information">{{projects.numStudents}}</h4>
+      <!-- General information -->
+      <div class="row equal">
+        <div class="col-sm-4">
+          <div class="information">
+            <h2>Information</h2>
+            <h4 class="h4-regular">Course:</h4>
+            <h4 class="h4-bold">{{projects.name}}</h4>
+            <h4 class="h4-regular">Subject Code:</h4>
+            <h4 class="h4-bold">{{projects.subjectCode}}</h4>
+            <h4 class="h4-regular">Number of groups:</h4>
+            <h4 class="h4-bold">{{projects.numGroups}}</h4>
+            <h4 class="h4-regular">Number of students:</h4>
+            <h4 class="h4-bold" id="information">{{projects.numStudents}}</h4>
+          </div>
         </div>
-      </div>
 
-      <div class="col-sm-4">
-        <div class="random" ng-controller="RandomGroupCtrl">
-        <a ng-click="random()">
-          <p id="question-mark">?</p>
-          <h4>Random assignment</h4>
-        </a>
+        <!-- Assign random button-->
+        <div class="col-sm-4">
+          <div class="random" ng-controller="RandomGroupCtrl">
+            <a ng-click="random()">
+              <p id="question-mark">?</p>
+              <h4>Random assignment</h4>
+            </a>
+          </div>
         </div>
-      </div>
 
+        <!-- Search bar-->
         <div class="col-sm-4">
           <div class="search">
-          <h2>Search student</h2>
-      <input type="text" class="search-bar" placeholder="Name" style="margin-top: 35px;" ng-model='search'>
-      <input type="submit" value="Search" class="search-button">
+            <h2>Search student</h2>
+            <input type="text" class="search-bar" placeholder="Name" style="margin-top: 35px;" ng-model='search'>
+            <input type="submit" value="Search" class="search-button">
+          </div>
         </div>
       </div>
-      </div>
 
+      <!-- Groups -->
       <div class="col-sm-4" ng-repeat="group in groups | groupFilter: search" ng-show="group.indexOf!=-1">
         <a href="/#/project/{{projectid}}/group/{{group.number}}" class="group">
           <div class="image" ng-repeat="member in group.members">
@@ -53,68 +55,15 @@
         </a>
       </div>
 
-
-    </div>
-    <div class="container">
-      <div class="row">
-        <h1>Random pool members</h1>
+      <!-- Random pool -->
+      <div class="col-sm-4">
+        <h3>Random pool members</h3>
         <ul ng-repeat="member in projects.randomPool">
           <li ng-if="member.local">{{member.local.firstName}} {{member.local.lastName}}</li>
           <li ng-if="member.facebook">{{member.facebook.name}}</li>
         </ul>
       </div>
+
     </div>
   </div>
 </div>
-
-
-
-<!--
-
-
-
-<div class="row">
-<div class="col-sm-2"></div>
-<div class="col-sm-8">
-    <div class="panel-body">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-        <h2>View Groupmolder</h2>
-          </div>
-		  <div class="panel-body">
-{{project.name}}
-        <table ng-repeat="group in groups" align="center" class="table">
-          <thead>
-            <tr>
-              <td><a href="/#/project/{{projectid}}/group/{{group.number}}"><li class="fa fa-group"></li> Group: {{group.number}}</a></td>
-              <td></td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="t in [0,1,2,3]">
-              <td width="30%" ><img src="//graph.facebook.com/{{group.members[t].facebook.id}}/picture?type=large" title="{{group.members[t].facebook.name}}"></im></td>
-              <td>{{group.members[t].facebook.name}}</td>
-            </tr>
-          </tbody>
-          </table>
-            <a class="btn btn-default" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
-        </div>
-    </div>
-</div>
-<div class="col-sm-2"></div>
-</div>
-</div>
-</div>
-</div>
--->
-
-<!--
-        <ul ng-repeat="group in groups">
-          <tr>
-            <td<a href="/#/project/{{projectid}}/group/{{group.number}}">Group: {{group.number}}</a>
-          </tr>
-            <li>Members: <div ng-repeat="t in [0,1,2,3]">{{group.members[t].facebook.name}}</li>
-        </ul>
-            <a class="btn btn-default" href="/#/project/"><i class="fa fa-angle-left"></i>Back</a>
-          </div>
--->
