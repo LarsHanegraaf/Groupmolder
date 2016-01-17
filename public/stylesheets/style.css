@@ -781,7 +781,7 @@ Student page
   margin-bottom: 30px;
 }
 
-.student .image img{
+.image img{
   position: relative;
   display: inline;
   width: 100%;
@@ -789,7 +789,7 @@ Student page
   float: left;
 }
 
-.student .image div{
+.image div{
   position: relative;
   display: inline;
   width: 50%;
@@ -920,6 +920,25 @@ Student page
   }
 }
 
+.submitButton { /* submit fields */
+  color: white;
+  background-color: #F25C05;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  width: 100%;
+  height: 40px;
+}
+
+.submitButton:hover{
+  background-color: #c74813;
+}
+
+.submitButton:disabled{
+  background-color: #6d7d83;
+}
+
 /* Group of random student */
 
 .random-block {
@@ -957,7 +976,7 @@ Student page
 }
 
 @media (max-width:767px) {
-  .student .random-block {
+  .random-block {
     max-width: 320px;
     margin-left: auto;
     margin-right: auto;
