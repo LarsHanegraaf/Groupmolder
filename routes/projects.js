@@ -43,7 +43,7 @@ router.post('/', function(req, res) {
 })
 
 router.get('/:id', function(req,res) {
-  Project.findById({ _id: req.params.id }, function(err, project) {
+  Project.findById({ _id: req.params.id }).populate('randomPool').exec(function(err, project){
     if(err) throw err;
 
     res.json(project);
