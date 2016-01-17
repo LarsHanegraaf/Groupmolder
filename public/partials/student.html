@@ -43,7 +43,7 @@
 			<div class="panel-body">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h2>My Projects</h2>
+							<h2>My groupmolders</h2>
 						</div>
 						<div>
 							<table class="table" align="center">
@@ -51,14 +51,14 @@
 									<tr>
 										<th>Course</th>
 										<th>Subject Code</th>
-										<th>Link</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat='project in projects'>
 										<td id="alignv">{{project.name}}</td>
 										<td id="alignv">{{project.subjectCode}}</td>
-										<td id="alignv"><a href="/#/project/{{project._id}}">Go to project page</a></td>
+										<td id="alignv" class="pull-left"><a href="/#/project/{{project._id}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i><span title="View Groupmolder">View</span></a></td>
 									</tr>
 								</tbody>
 							</table>
