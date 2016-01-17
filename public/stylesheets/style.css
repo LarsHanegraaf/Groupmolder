@@ -104,7 +104,6 @@ a {
   }
 }
 
-
 @media (max-width:494px) {
   #img-menu {
     max-width: 190px;
@@ -131,7 +130,6 @@ a {
 	padding: 15px;
 	background-color: #f2f2f2;
 }
-
 
 /*
 =======================================
@@ -355,30 +353,6 @@ Register page
   background-color: white;
 }
 
-.register .panel input{
-  width: 90%;
-  padding: 10px;
-  margin: 5px 0;
-  font-size: 1.2em;
-  color: #435055;
-  border: none;
-}
-
-.register .panel input[type="submit"],
-.register .panel a{
-  color: white;
-  background-color: #F25C05;
-  border: none;
-  border-radius: 5px;
-  margin: 10px 0;
-  font-size: 1.5em;
-  width: 100%;
-}
-
-.register .panel input[type="submit"]:hover{
-  background-color: #c74813;
-}
-
 .register .panel a:hover{ /* hover Facebook button */
   background-color: #184c90;
 }
@@ -438,31 +412,6 @@ Register page
   #signup-right {
       right: 5px;
   }
-}
-
-.register .input-wrapper > i{
-  width: 10%;
-  display: inline-block;
-  background-color: white;
-  color: #586B72;
-  float: left;
-  margin: 5px 0;
-  height: 44px;
-  line-height: 44px;
-  text-align: center;
-  font-size: 1.5em;
-}
-
-.register .input-wrapper > i:hover{ /* hover over icons */
-  color: #435055;
-}
-
-.register .input-wrapper input{
-  padding-left: 0;
-}
-
-.register .input-wrapper input:focus{
-  padding-left: 0;
 }
 
 .register .panel a i{
@@ -576,57 +525,9 @@ tr:nth-child(even) {
   background-color: white;
 }
 
-.project .panel input{
-  width: 90%;
-  padding: 10px;
-  margin: 5px 0;
-  font-size: 1.2em;
-  border: none;
-  color: #435055;
-}
-
-.project .panel input[type="submit"]{ /* submit fields */
-  color: white;
-  background-color: #F25C05;
-  border: none;
-  border-radius: 5px;
-  margin: 10px 0;
-  font-size: 1.5em;
-  width: 100%;
-}
-
-.project .panel input[type="submit"]:hover{
-  background-color: #c74813;
-}
-
 .project .panel h4{
   text-align: center;
   color: #000;
-}
-
-.project .input-wrapper > i{ /* icons next to input fields */
-  width: 10%;
-  display: inline-block;
-  background-color: white;
-  color: #586B72;
-  float: left;
-  margin: 5px 0;
-  height: 44px;
-  line-height: 44px;
-  text-align: center;
-  font-size: 1.5em;
-}
-
-.project .input-wrapper > i:hover{ /* icons next to input fields */
-  color: #435055;
-}
-
-.project .input-wrapper input{ /* reduce padding between input fields and icons */
-  padding-left: 5px;
-}
-
-.register .input-wrapper input:focus{
-  padding-left: 5px;
 }
 
 .project .panel a i{
@@ -890,9 +791,6 @@ Student page
     margin-right: 0px;
     width: auto;
   }
-  .register .input-wrapper input {
-    padding-left: 5px;
-  }
 }
 
 @media (max-width:462px) {
@@ -900,9 +798,6 @@ Student page
     margin-left: 0px;
     margin-right: 0px;
     width: auto;
-  }
-  .student .input-wrapper input {
-    padding-left: 5px;
   }
 }
 
@@ -938,30 +833,6 @@ Student page
 
 .student .panel-heading{
   background-color: white;
-}
-
-.student .panel input{
-  width: 90%;
-  padding: 10px;
-  margin: 5px 0;
-  font-size: 1.2em;
-  color: #435055;
-  border: none;
-}
-
-.student .panel input[type="submit"],
-.student .panel a{
-  color: white;
-  background-color: #F25C05;
-  border: none;
-  border-radius: 5px;
-  margin: 10px 0;
-  font-size: 12px;
-  width: 100%;
-}
-
-.student .panel input[type="submit"]:hover{
-  background-color: #c74813;
 }
 
 .student .panel a:hover{ /* hover Facebook button */
@@ -1012,4 +883,62 @@ Student page
   .student .col-sm-12 {
     padding: 0px;
   }
+}
+
+
+/* NEW FORMS */
+
+.wrapper {
+  background-color: white;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.wrapper > i {
+  width: 10%;
+  color: #586B72;
+  float: left;
+  text-align: center;
+  font-size: 1.5em;
+  min-height: 100%;
+  margin-top: 10px;
+}
+
+.wrapper > i:hover { /* hover over icons */
+  color: #435055;
+}
+
+.form input{
+  width: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.2em;
+  border: none;
+  color: #435055;
+  border-radius: 5px;
+}
+
+.form input[type="submit"]{ /* submit fields */
+  color: white;
+  background-color: #F25C05;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.form input[type="submit"]:hover{
+  background-color: #c74813;
+}
+
+.form .facebook-button {
+  color: white;
+  background-color: #F25C05;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
+  width: 100%;
 }

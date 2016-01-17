@@ -13,23 +13,24 @@
           <div class="panel-heading">
             <h2>Join Groupmolder!</h2>
           </div>
-          <div class="panel-body">
+
+          <div class="panel-body form">
             <form action="/register" method='post'>
-              <div class="input-wrapper">
+              <div class="wrapper">
                 <i class="fa fa-user"></i>
-                <input class="pull-right" type="text" placeholder="first name" name="firstName" required>
+                <input type="text" placeholder="first name" name="firstName" required>
               </div>
-              <div class="input-wrapper">
+              <div class="wrapper">
                 <i class="fa fa-user"></i>
-                <input class="pull-right" type="text" placeholder="last name" name="lastName" required>
+                <input type="text" placeholder="last name" name="lastName" required>
               </div>
-              <div class="input-wrapper">
+              <div class="wrapper">
                 <i class="fa fa-envelope"></i>
-                <input class="pull-right" type="email" placeholder="email" name="email" required>
+                <input type="email" placeholder="email" name="email" required>
               </div>
-              <div class="input-wrapper">
+              <div class="wrapper">
                 <i class="fa fa-lock"></i>
-                <input class="pull-right" type="password" placeholder="password" name="password" required>
+                <input type="password" placeholder="password" name="password" required>
               </div>
               <div>
                 <input class="pull-right" type="radio" name="role" style="width: 12px;" value="student" required><h4 style="text-align: left"><i class="fa fa-graduation-cap"></i> Student</h4>
@@ -38,8 +39,9 @@
               <input type="submit" value="Sign up">
             </form>
             <h4>OR</h4>
-            <a href="/auth/facebook"><i class="fa fa-facebook-square"></i>Log in with Facebook</a>
+            <a href="/auth/facebook" class="facebook-button"><i class="fa fa-facebook-square"></i>Log in with Facebook</a>
           </div>
+
         </div>
       </div>
 
