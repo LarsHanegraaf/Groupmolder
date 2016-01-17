@@ -9,17 +9,17 @@ app.config(['$routeProvider', function($routeProvider){
         .when('/project', {
             templateUrl: 'partials/project.html',
             controller: 'ProjectCtrl',
-            roles: ['teacher', 'student']
+            roles: ['teacher']
         })
         .when('/project/edit/:id', {
             templateUrl: 'partials/project-edit.html',
             controller: 'EditProjectCtrl',
-            roles: ['teacher', 'student']
+            roles: ['teacher']
         })
         .when('/project/delete/:id', {
             templateUrl: '/partials/project-delete.html',
             controller: 'DeleteProjectCtrl',
-            roles: ['teacher', 'student']
+            roles: ['teacher']
         })
         .when('/project/:id', {
             templateUrl: '/partials/project-view.html',
@@ -33,7 +33,8 @@ app.config(['$routeProvider', function($routeProvider){
         })
         .when('/project/random/:id', {
           templateUrl: '/partials/project-random.html',
-          controller: 'AssignRandomCtrl'
+          controller: 'AssignRandomCtrl',
+          roles: ['teacher']
         })
         .when('/register', {
           templateUrl: '/partials/register.html',
@@ -42,7 +43,7 @@ app.config(['$routeProvider', function($routeProvider){
         .when('/student', {
           templateUrl: '/partials/student.html',
           controller: 'StudentCtrl',
-          roles: ['teacher', 'student']
+          roles: ['student']
         })
         .when('/login', {
           templateUrl: '/partials/login.html',
@@ -100,7 +101,6 @@ app.controller('ProjectCtrl', ['$scope', '$resource',
     var Projects = $resource('api/projects');
     Projects.query(function(projects){
       $scope.projects = projects;
-      console.log(projects);
     });
 }]);
 
