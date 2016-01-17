@@ -88,7 +88,6 @@ a {
   border-color: #c8c8c8;
 }
 
-
 @media (max-width:494px) {
   #img-menu {
     max-width: 190px;
@@ -97,7 +96,6 @@ a {
     margin-bottom: 125px;
   }
 }
-
 
 @media (max-width:767px) {
   .navbar .pull-right {
@@ -116,8 +114,6 @@ a {
     margin-left: 0px;
   }
 }
-
-
 
 /* Forms */
 
@@ -921,5 +917,56 @@ Student page
   }
   .student .col-sm-12 {
     padding: 0px;
+  }
+}
+
+/* Group of random student */
+
+.random-block {
+  background-color: #F25C05;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+
+.random-block h3 {
+  margin-top: 0px;
+  background-color: white;
+  color: #F25C05;
+  padding: 10px;
+  margin-bottom: 0px;
+}
+
+.random-block img {
+  width: 100%;
+  max-width: 200px;
+}
+
+.random-block ul {
+  list-style-type: none;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.random-block .lijntje {
+  display: inline-block;
+  max-width: 25%;
+}
+
+@media (max-width:767px) {
+  .student .random-block {
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width:400px) {
+  .student .col-sm-12 {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

@@ -56,12 +56,18 @@
       </div>
 
       <!-- Random pool -->
-      <div class="col-sm-4">
-        <h3>Random pool members</h3>
-        <ul ng-repeat="member in projects.randomPool">
-          <li ng-if="member.local">{{member.local.firstName}} {{member.local.lastName}}</li>
-          <li ng-if="member.facebook">{{member.facebook.name}}</li>
-        </ul>
+      <div class="col-sm-12">
+        <div class="random-block">
+          <h3 class="text-center">Students in the random pool</h3>
+          <div class="lijntje" ng-repeat="member in projects.randomPool">
+            <div ng-if="member.facebook">
+              <img src="//graph.facebook.com/{{member.facebook.id}}/picture?type=large" title="{{member.facebook.name}}"/>
+            </div>
+            <div ng-if="member.local">
+              <img src="/images/user.png" title="{{member.local.firstName}} {{member.local.lastName}}">
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
