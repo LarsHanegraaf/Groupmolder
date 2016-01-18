@@ -984,7 +984,7 @@ Student page
 }
 
 @media (max-width:400px) {
-  .student .col-sm-12 {
+  .student .col-sm-4 {
     padding-left: 15px;
     padding-right: 15px;
   }
