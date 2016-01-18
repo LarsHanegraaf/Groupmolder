@@ -117,10 +117,11 @@
           <p>To retrieve information about a group, use a GET method on /projects/”_id”/groups . The response is an array with all the groups of that project and all the member information.</p>
           <p>To retrieve information about a specific group, use a GET method on /projects/”_id”/groups/”number” . The response is an object with the groupnumber and all the information about its members.</p>
 
-          <strong>For the following 2 endpoints you have to be authenticated via the website (via Log in of Facebook login):</strong>
+          <strong>For the following 4 endpoints you have to be authenticated via the website (via Log in of Facebook login):</strong>
           <p>To check whether an user is allowed to join a group, use a GET method on /projects/”_id”/groups/”number”/check . The result is either {"error": "User already joined group"} or {"check": "passed"} or {"status": "User not logged in"}.</p>
           <p>To join a group, use a POST method on /projects/”_id”/groups/”number” . You don’t have to provide a body, since you’re information is parsed from the user/_id header of your request. The response contains the specific information for that group.</p>
-
+          <p>To join a random the randompool, use a POST method on /projects/”_id”/random . You also don’t have to provide a body here, the response is object which contains the project info and the groups with the members’ ID.</p>
+          <p>To assign the users in the randompool to groups, you have to be authenticated as a teacher and use a POST method on /projects/”_id”/assignrandom. The response is {"succcess": true}, or {"error": "Not authorized"}, when not authorized.</p>
           <h3>User</h3>
           <p>The only method provided for a user is to get information about which groups the user joined. You also have to be authenticated by our website to do this query!</p>
           <p>To get information about the projects that you joined, use a GET method on /users . The response is an array with all the information of a project that your joined.</p>
